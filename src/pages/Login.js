@@ -18,14 +18,14 @@ export default function Login(props){
    function entrar(){
       let nomeRecebido = document.getElementById("nomeText").value;
 
-      props.valor.setState({
+      props.ctxCanvas.setState({
          telas: [
             {nome: nomeRecebido, exibida: false}, 
            // {nome: 'Porta do reino', exibida: false}, 
             {nome: 'Seleção de games', exibida: true}, 
             {nome: 'Rank', exibida: false}
           ]
-      });
+       });
    }
 
    return (
