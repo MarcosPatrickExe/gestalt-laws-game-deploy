@@ -13,16 +13,16 @@ export default function Rank(props){
        );
     }
 
-console.log(props.value);
-
     let gerarSegundoAleatorio =()=>{// 0 <= N <61 
       return Math.floor(
          Math.random()*(61-0)+0
       );
    }
 
+   console.log(props.estadoMain);
+
    let valores = [
-      [props.value[0].nome,'XminYs'],
+      [props.estadoMain.telas[0].nome,'XminYs'],
       ['xxxxxx','XminYs'],
       ['yyyyyy','XminYs'],
       ['zzzzzz','XminYs'],
@@ -45,8 +45,8 @@ console.log(props.value);
 
    const vals = novosValores.map( (elemento, indice)=>{//adicionando linhas e colunas no componente 'vals'
        let value = <tr> 
-                    <td>{elemento[0]}</td> {/* nome */}
-                    <td>{elemento[1]}</td> {/* tempo total   */}
+                        <td>{elemento[0]}</td> {/* nome */}
+                        <td>{elemento[1]}</td> {/* tempo total   */}
                   </tr> 
         
        return value;
@@ -55,12 +55,15 @@ console.log(props.value);
    return (
      <div>
          <table>
+            <thead>
                <tr >
                   <th> Nome do jogador: </th>
                   <th> Tempo total: </th>
                </tr>
-
+            </thead>
+            <tbody>
                {vals}
+            </tbody>
          </table>
 
          <Ranking className="imagemInserida"/> 
