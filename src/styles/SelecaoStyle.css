@@ -1,9 +1,16 @@
-.castelo{/*antigo botao1 da classe ClassiStyles.css */
+body{
+    cursor: url("../images/cursor/curse.png"), auto;
+}
 
+:root{
+    --corDosBotoes: blue;
+}
+
+.castelo{/*antigo botao1 da classe ClassiStyles.css */
     background-color: rgb(197, 101, 21);
     position: absolute;
-    top: 20%;
-    left: 60%;
+    top: 70%;
+    left: 65%;
     width: 250px;
     height: 60px;
     border-radius: 25px;
@@ -11,10 +18,12 @@
     box-shadow: 4px 5px 0px 4px rgb(88, 43, 5);
 }
 
-.btn1{
-    background-color: rgb(11, 72, 185);
+.castelo:hover{ cursor: url("../images/cursor/curse.png"), auto }
+
+.torreIgreja{
+    background-color: var(--corDosBotoes);
     position: absolute;
-    top: 40%;
+    top: 25%;
     left: 700px;
     width: 250px;
     height: 60px;
@@ -23,10 +32,10 @@
     box-shadow: 4px 5px 0px 4px rgb(3, 2, 63);
 }
 
-.btn2{
-    background-color: rgb(11, 72, 185);
+.laboratorio{
+    background-color: var(--corDosBotoes);
     position: absolute;
-    top: 55%;
+    top: 40%;
     left: 700px;
     width: 250px;
     height: 60px;
@@ -35,10 +44,10 @@
     box-shadow: 4px 5px 0px 4px rgb(3, 2, 63);
 }
 
-.btn3{
-    background-color: rgb(11, 72, 185);
+.moinho{
+    background-color: var(--corDosBotoes);
     position: absolute;
-    top: 400px;
+    top: 55%;
     left: 700px;
     width: 250px;
     height: 60px;
@@ -48,23 +57,75 @@
 }
 
 .boxDescricao{
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 380px;
     background-color: rgb(197, 101, 21);
     z-index: 35;
     position: absolute;
-    left: 4%;
-    top: 10%;
-    border-radius: 20px;
-    box-shadow: 4px 5px 0px 4px rgb(3, 2, 63);
-
+    left: 3%;
+    top: 30%;
+    box-shadow: 4px 5px 0px 4px rgb(101, 42, 3);
 }
 
-.descricao{
-    font-size: 30px;
+.boxDescricao h3{
+    font-size: 25px;
+    font-family: "arial";
     color: white;
-    text-shadow: 0.55em, 0.55em, 0.5em black;
+    text-shadow:  3px 3px 5px black, -3px -3px 5px black;
     z-index: 36;
-    padding: 10px;
-    text-align: left;
+    padding: 3px 20px 3px 20px; /* Top, Right, Bottom, Left*/
+    position: inherit;
+    top: -20px;
+    text-align: center;
+    background-color: rgb(156, 64, 3);
+}
+
+.boxDescricao #personagem{
+    width: 85%;
+    height: 50%;
+    position: absolute;
+    left: 0; 
+    right: 0;
+    margin: auto;
+    top: 45%;
+    background-image: url('../images/personagem.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 150%;
+    border: 5px solid hsl(29, 98%, 23%);
+    z-index: 101;
+}
+
+.torreIgreja, .laboratorio, .moinho:hover{
+      cursor: not-allowed;
+}
+
+.boasVindas{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 5%;
+    margin: auto;
+    background-color:  rgb(197, 101, 21);
+    z-index: 74;
+    width: 35%;
+    height: 20%;
+    box-shadow: 0 0 0 6px rgb(88, 43, 5);
+}
+
+.boasVindas, h2{
+    color: white;
+    font-size: 32px;
+    font-family: "arial";
+    text-align: center;
+    z-index: inherit;
+    position: inherit;
+    padding:  0px 0px 0px 0px;
+    text-shadow: 4px 4px 1px hsl(29, 98%, 18%);
+}
+
+.imagemDeFundo{
+    z-index: -10;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
