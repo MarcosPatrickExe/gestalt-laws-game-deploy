@@ -42,11 +42,13 @@ export default class Main extends React.Component {
 
       this.state={//A variavel 'state' será responsável por gerenciar as telas que são exibidas!
           telas: [
-            {nome: 'Login', exibida: true}, 
+            {nome: 'Login', exibida: false}, 
            // {nome: 'Porta do reino', exibida: false}, 
-            {nome: 'Seleção de games', exibida: false}, 
+            {nome: 'Seleção de games', exibida: true}, 
             {nome: 'Rank', exibida: false}]
       }
+
+      console.log(this.state);
  }
 
  verRanking =()=>{
@@ -78,6 +80,8 @@ export default class Main extends React.Component {
 
  verTelaDeSelecao =()=>{
     let {telas} = this.state;
+
+    console.log("valor de telas (tela de seleção de games): "+telas);
 
     telas[0].exibida=false;
     telas[1].exibida=true;
@@ -117,10 +121,11 @@ export default class Main extends React.Component {
       
       let componenteDaTela;
       let botao;
+
       switch(telaAtualObj[0].nome){
 
         case 'Login':
-           componenteDaTela =  <Login valor={this}/> ; 
+           componenteDaTela =  <Login ctxCanvas={this}/> ; 
           /// botao = <input type="button" value="ENTRAR!" className="botaoEntrar" onClick={this.entrar()}/>
            break;
 
@@ -135,7 +140,10 @@ export default class Main extends React.Component {
            break;
 
         case 'Rank':
-           componenteDaTela =  <Rank value={this.state}/> ;//botão de cima
+
+           console.log("Antes de entrar no Rank: "+this.state);
+
+           componenteDaTela =  <Rank estadoMain={this.state}/> ;//botão de cima
            botao = <button onClick={ ()=> this.verTelaDeSelecao() } className="botao2"> <span>{'<='} Selecionar jogo</span></button>;
            break;
 
@@ -154,8 +162,6 @@ export default class Main extends React.Component {
                </Canvas>
                
                 {botao}
-
-                
              </div> 
         );
    };
