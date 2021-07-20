@@ -5,19 +5,26 @@ import '../styles/SelecaoStyle.css';
 
 export default function SelecaoGames(){
 
+  
+
    return (
       <div>
+            <div className="boasVindas"> 
+                <h2>Bem-vindo(a) ao reino <br/> de Pragnäz!</h2> 
+            </div>
 
-            <button  className="btn1"><span>Mini game 1</span></button>
+            <button className="torreIgreja"><span>Torre da igreja</span></button>
             
-            <button  className="btn2"><span>Mini game 2</span></button>
+            <button className="laboratorio"><span>Laboratório</span></button>
 
-            <button  className="btn3"><span>Mini game 3</span></button>
+            <button className="moinho"><span>Moinho</span></button>
 
             <div className="boxDescricao">
-               <h3 className="descricao">Navegue pelas redondezas do reino para desvendar seus mistérios e completar seus desafios.</h3>
+                <h3 id="descriptionText">Navegue pelas redondezas do reino para desvendar seus mistérios e completar seus desafios.</h3>
+            
+                <div id="personagem"></div>
             </div>
       
-            <Selecao style={{zIndex: 1, position: 'absolute', left: 0, top: 0}}/>
+            <Selecao className="imagemDeFundo"/>
       </div>);
 }
