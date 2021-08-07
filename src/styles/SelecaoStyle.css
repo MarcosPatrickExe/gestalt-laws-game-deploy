@@ -1,61 +1,182 @@
-body{
-    cursor: url("../images/cursor/curse.png"), auto;
-}
-
 :root{
-    --corDosBotoes: blue;
+    --corDosBotoes: rgb(85, 85, 85);
+    --leftPlacas: 33.2%;
 }
 
-.castelo{/*antigo botao1 da classe ClassiStyles.css */
-    background-color: rgb(197, 101, 21);
-    position: absolute;
-    top: 70%;
-    left: 65%;
-    width: 250px;
-    height: 60px;
-    border-radius: 25px;
-    z-index: 31;
-    box-shadow: 4px 5px 0px 4px rgb(88, 43, 5);
+/*
+style={{position: 'absolute', width: 200+'px', height: 'auto', left: '200px', top: '30px',
+    zIndex: 30}} 
+*/
+
+.placaTorreRelogio:hover{
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transform: rotate(30deg);
+}
+.placaLaboratorio:hover{
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transform: rotate(-10deg);
+}
+.placaMoinho:hover{
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transform: rotate(-35deg);
 }
 
-.castelo:hover{ cursor: url("../images/cursor/curse.png"), auto }
 
-.torreIgreja{
-    background-color: var(--corDosBotoes);
+
+
+
+
+.placaTorreRelogio h3{
     position: absolute;
-    top: 25%;
-    left: 700px;
-    width: 250px;
-    height: 60px;
-    border-radius: 25px;
-    z-index: 32;
-    box-shadow: 4px 5px 0px 4px rgb(3, 2, 63);
+    margin-top: 5%;
+    margin-left: 45px;
+    font-size: 55px;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+}
+.placaTorreRelogio{ /*primeira de cima*/
+    position: absolute;
+    width: 478px;
+    height: 120px;
+    left: 32.2%;
+    top: 15%;
+    z-index: 100;
+    background-image: url('../images/telaSelecao/placa1.svg');
+    background-repeat: no-repeat;
 }
 
-.laboratorio{
-    background-color: var(--corDosBotoes);
+
+
+
+.placaLaboratorio h3{
     position: absolute;
+    margin-top: 5%;
+    margin-left: 45px;
+    font-size: 55px;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+}
+.placaLaboratorio{/*placa do meio*/
+    position: absolute;
+    width: 479px;
+    height: 120px;
+    left: 26.2%;
     top: 40%;
-    left: 700px;
-    width: 250px;
-    height: 60px;
-    border-radius: 25px;
-    z-index: 33;
-    box-shadow: 4px 5px 0px 4px rgb(3, 2, 63);
+    z-index: 90;
+    background-image: url('../images/telaSelecao/placa2.svg');
+    background-repeat: no-repeat;
 }
 
-.moinho{
-    background-color: var(--corDosBotoes);
+
+
+.placaMoinho h3{
     position: absolute;
-    top: 55%;
-    left: 700px;
-    width: 250px;
-    height: 60px;
-    border-radius: 25px;
-    z-index: 34;
-    box-shadow: 4px 5px 0px 4px rgb(3, 2, 63);
+    margin-top: 5%;
+    margin-left: 50%;
+    font-size: 55px;
+    color: white;
+    text-shadow: 5px 5px 8px black;
+}
+.placaMoinho{
+    position: absolute;
+    width: 478px;
+    height: 120px;
+    left: 33.2%;
+    top: 65%;
+    z-index: 80;
+    background-image: url('../images/telaSelecao/placa3.svg');
+    background-repeat: no-repeat;
 }
 
+.poste{
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    left: 17%;
+    top: -10%;
+    z-index: 70;
+    background-image: url('../images/telaSelecao/poste.svg');
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+#botaoRank{
+    position: absolute;
+    left: 77%;
+    top: 74%;
+    width: 250px;
+    height: 90px;
+    cursor: pointer;
+    z-index: 92;
+}
+
+#botaoRank, #coroaIMG{
+    position: absolute;
+    background-image: url('../images/telaSelecao/coroa.svg');
+    background-repeat: no-repeat;
+    z-index: 100;
+}
+
+
+
+
+#plaquinhaRank{/*placa abaixo da palabra "ranking"*/
+    position: absolute;
+    left: 76%;
+    top: 88%;
+    width: 270px;
+    height: 67.8px;
+    background-image: url('../images/telaSelecao/placa2.svg');
+    background-repeat: no-repeat;
+    background-color: rgb(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+#plaquinhaRank #ranking{/* TEXTO "RANKING" */
+    font-size: 55px;
+    font-family: "nova oral";
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 0%;
+    color: white;
+    z-index: 101;
+    text-shadow: 5px 5px 5px black, -2px -2px 5px black;
+}
+
+
+
+
+/*
+h3{
+    font-family: "Nova Oral"; 
+    font-size: 70px;
+    position: absolute;
+    left: 2%;
+    top: 87%;
+    color: white;
+    text-shadow: 0 0 55px black;
+} 
+
+h3:hover{
+    text-shadow: 0 0 105px red;
+    outline-width: 2px;
+    outline-offset: unset; 
+    transition-duration: 2s;
+}
+*/
+
+
+/*
 .boxDescricao{
     width: 320px;
     height: 380px;
@@ -64,7 +185,7 @@ body{
     position: absolute;
     left: 3%;
     top: 30%;
-    box-shadow: 4px 5px 0px 4px rgb(101, 42, 3);
+    box-shadow: 2px 2px 0px 4px rgb(101, 42, 3);
 }
 
 .boxDescricao h3{
@@ -73,7 +194,7 @@ body{
     color: white;
     text-shadow:  3px 3px 5px black, -3px -3px 5px black;
     z-index: 36;
-    padding: 3px 20px 3px 20px; /* Top, Right, Bottom, Left*/
+    padding: 3px 20px 3px 20px; /* Top, Right, Bottom, Left
     position: inherit;
     top: -20px;
     text-align: center;
@@ -94,38 +215,4 @@ body{
     border: 5px solid hsl(29, 98%, 23%);
     z-index: 101;
 }
-
-.torreIgreja, .laboratorio, .moinho:hover{
-      cursor: not-allowed;
-}
-
-.boasVindas{
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 5%;
-    margin: auto;
-    background-color:  rgb(197, 101, 21);
-    z-index: 74;
-    width: 35%;
-    height: 20%;
-    box-shadow: 0 0 0 6px rgb(88, 43, 5);
-}
-
-.boasVindas, h2{
-    color: white;
-    font-size: 32px;
-    font-family: "arial";
-    text-align: center;
-    z-index: inherit;
-    position: inherit;
-    padding:  0px 0px 0px 0px;
-    text-shadow: 4px 4px 1px hsl(29, 98%, 18%);
-}
-
-.imagemDeFundo{
-    z-index: -10;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
+*/

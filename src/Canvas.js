@@ -1,9 +1,8 @@
 import React from 'react';
-import './styles/BackgroundStyle.css';
+import './styles/CanvasStyle.css';
 
-/*
 //AQUI EU TENTEI FAZER UM CANVAS NA MÃO (sabendo que existe biblioteca para isso). O QUE HOUVE FOI QUE SE O CANVAS FOR UM COMPONENTE DO TIPO 'CLASS' ELE NÃO PODE RECEBER OS NOVOS PROPS ENVIADOS POR "ShowGrid". CONTUDO, SE ELE FOR DO TIPO 'FUNCTION' SEU ESTADO NAO PODERÁ SER ALTERADO. ISSO SO SERA POSSIVEL COM AS FUNCOES QUE POSSUEM ESTADO COM REACT HOOKS
-
+/*
 class Canvas extends Component{
   constructor(props) {
     super(props);
@@ -17,89 +16,91 @@ class Canvas extends Component{
 
     alert("executando construtor do Canvas "+this.state.gridOn);
   }
+*/
+ 
+class Canvas extends React.Component{
+   //alert("largura da janela: "+window.innerWidth+"/ Altura da janela: "+window.innerHeight);
+  //1304x697 = 1,870875179340029 (proporção da janela)
+  constructor(props){
+       super(props);
+  }
 
   componentDidMount(){
-     let canvasObj = document.getElementById('canvas');
-     
-     alert("Fazendo montagem. Estado do canvas: "+this.state.canvasAlreadyCreated);
-     if(!this.state.canvasAlreadyCreated){
-            //let canvasA = document.createElement("canvas");
+      if(this.props.grid.value){ 
+            this.desenharGrid();
+      }
+  }
 
-            canvasObj["width"] = 1200;//(window.innerWidth-20);
-            canvasObj["height"] = 600;//(window.innerHeight-20);
+  desenharGrid(){
+      let ctx = this.refs.canvas.getContext('2d');//passando o contexto para a criação das linhas
 
-            canvasObj.style = "border: 2px solid black;"
-                            +"background-color: purple;"
-                            +"position: absolute;" 
-                            +"padding: 0px;" 
-                            +"margin: auto;"
-                            +"left: 0;"
-                            +"top: 0;"
-                            +"right: 0;"
-                            +"bottom: 0;"
-                            +"display: block;";
+     // let largura = window.innerWidth*0.9501533742331288;
+     // let altura = largura / 1.778990450204638;
+     // let distHoriz =  (window.innerWidth - largura)/2;//pegando distância do canvas às bordas esqueda e direita da janela
+     // let distVerti = (window.innerHeight - altura)/2;//pegando distância do canvas às bordas de cima e baxo da janela
 
+      for(let X=0; X < 1300; X+=50){
+          for(let Y=0; Y < 697; Y+=50){
+            let coordenada = document.createElement("p");
 
-            this.setState({//ao alterar o setSate vc chama automaticamente o render()
-                canvasAlreadyCreated: true,
-                //gridOn: props.grid,
-                context: canvasObj.getContext("2d"),
-                canvas: canvasObj
-            });
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "red";
+            ctx.moveTo(X, Y);
+            ctx.lineTo(X+100, Y);
+            ctx.stroke();
 
-            
-            //document.body.appendChild(canvasA);
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "red";
+            ctx.moveTo(X, Y);
+            ctx.lineTo(X, Y+100);
+            ctx.stroke();
+
+            coordenada.style = "position: absolute; "
+                              + "color: white;"
+                              + "font-size: 9px; "
+                              + "left: "+(X)+"px; " 
+                              + "top: "+Y+"px; "
+                              + "z-index: 100; ";
+
+            coordenada.appendChild( document.createTextNode("X:"+X+" / Y:"+Y+" "));
+            document.body.appendChild(coordenada);
         }
+      }
+  }
 
+  apagarGrid(){
 
-        if(this.state.gridOn){//se o gridIn  estiver ativado o bloco de seleção é lido
-            
-            let resX = canvasObj.width/50;
-            let resY = canvasObj.height/50;
-            let ctx = canvasObj.getContext("2d");//passando o contexto para a criação das linhas
+    let altura = window.innerHeight;
+    let largura = altura * 1.778990450204638;
 
-            for(let X=resX; X < (canvasObj.width); X+=resX){
+    let ctx = this.refs.canvas.getContext('2d');
+    ctx.clearRect(0, 0, largura, altura);
+  }
 
-                ctx.moveTo(X, 0);
-                ctx.lineTo(X, canvasObj.height);
-                ctx.stroke();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = '#ff0000';
-            }
+  render(){
+      //proporção da imagem original: 1,777675276752768
+      //let larguraPadrao = 0.9501533742331288;//sempre a largura da imagem será 95% da janela do browser
+  
+      let altura = window.innerHeight;
+      let largura = altura * 1.778990450204638;
+      
+      let reajustarFundo = require("./funcoesGerais.js");
 
-            for(let Y=resY; Y < canvasObj.height; Y+=resY){
-                ctx.moveTo(0, Y);
-                ctx.lineTo(canvasObj.width, Y);
-                ctx.stroke();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = 'black';
-            }
-        }
+      return(
+          <div>
+              <div style={reajustarFundo()}>
+              
+                    <canvas ref="canvas" width={largura} height={altura} />
+                  
+                    {this.props.children}
+                </div>
+          </div>
+      );
     }
-
-
-    render(){
-        alert("renderizar o canvas");
-       
-        return(<canvas id="canvas">  </canvas>);
-    };
-}
-*/
-
-
-//Exemplo de Canvas funcional:
-function Canvas (props){
-
-    return(
-       <div>
-            <div className="canvas">
-              {/* {texto}  */}
-              {props.children} {/* mostrando o componente escolhido dentro do Canvas*/}
-
-           </div>
-       </div>
-     );
 }
 
+ 
 
 export default Canvas;

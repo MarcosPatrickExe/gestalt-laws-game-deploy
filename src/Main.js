@@ -1,62 +1,64 @@
 import React from "react";
 //import ShowGrid from './ShowGrid.jsx';
 import Canvas from './Canvas.js';
-import './styles/ClassicStyle.css';
-import './styles/LoginStyle.css';
-import './styles/SelecaoStyle.css';
+
+import './styles/MainStyle.css';
+//import {ReactComponent as BotaoCoroa} from './images/telaSelecao/coroa.svg'; //esse funcionou
+
 
 //Dimensões da janela: 1304 x 697 
-
 //import Button from './testingFiles/Button';
 //import ComponentA from './testingFiles/ComponentA';
 //import ComponentB from './testingFiles/ComponentB';
 //import Principal from './testingFiles/creating_button_with_callback.js';
 //import {ReactComponent as Peca1} from './images/passaroSVG/1.svg';
 //deve-se sempre importar o modulo 'ReactComponent' junto com a imagem em svg
-
 //import Carro from './testingFiles/ComponenteTemporario.jsx';
 
-
-
-/*
-   Para o dia 14, manhã: Patrick: 
-
- 1- Protótipo interativo 
- 2- Tela do portão - Caixa com o nome que bloqueia a entrada >
- 3- Seleção de jogos - Botão clicável do castelo >>
- 4- Tela do castelo - Variável no quadro de melhores tempos
-
-*/
-
-
+import Contador from './Contador.js';
 import Login from './pages/Login.js';
-//import PortaReino from './pages/PortaReino.js';
+import TorreIgreja from './pages/TorreIgreja.js';
 import SelecaoGames from './pages/SelecaoGames.js';
-import Rank from './pages/Rank.js';
-
+import Castelo from './pages/Castelo.js';
+import Moinho from './pages/Moinho.js';
+import Laboratorio from './pages/Laboratorio.js';
 
 export default class Main extends React.Component {
-
  constructor(){
-      super();
+     super();
 
-      this.state={//A variavel 'state' será responsável por gerenciar as telas que são exibidas!
-          telas: [
-            {nome: 'Login', exibida: false}, 
-           // {nome: 'Porta do reino', exibida: false}, 
-            {nome: 'Seleção de games', exibida: true}, 
-            {nome: 'Rank', exibida: false}]
+        this.tempoGeral = {
+              tempoTorreIgreja: null,
+              tempoMoinho: null,
+              tempoLaboratorio: null
+        }
+
+        this.state={//A variavel 'state' será responsável por gerenciar as telas que são exibidas!
+            telas: [
+              {nome: "SelecaoGames", exibida: false}, 
+              {nome: "TorreIgreja", exibida: false},
+              {nome: "Laboratorio", exibida: false},
+              {nome: "Castelo", exibida: false},
+              {nome: 'Moinho', exibida: false},
+              {nome: "Login", exibida: true}
+            ],
+
+            player: {
+               nome: ""
+            }
       }
-
-      console.log(this.state);
  }
+
 
  verRanking =()=>{
     let {telas} = this.state;
 
     telas[0].exibida=false;
     telas[1].exibida=false;
-    telas[2].exibida=true;
+    telas[2].exibida=false;
+    telas[3].exibida=true;
+    telas[4].exibida=false;
+    telas[5].exibida=false;
     /*For que permitirá a navegação entre as telas posteriormente:
      for(let i=0; i< telas.length; i++){
  
@@ -78,15 +80,18 @@ export default class Main extends React.Component {
     this.setState(telas);
  }
 
- verTelaDeSelecao =()=>{
+
+
+ verTelaSelecao =()=>{
     let {telas} = this.state;
 
-    console.log("valor de telas (tela de seleção de games): "+telas);
-
-    telas[0].exibida=false;
-    telas[1].exibida=true;
-    telas[2].exibida=false;
-      /*
+    telas[0].exibida=true;
+    telas[1].exibida=false;
+    telas[2].exibida=true;
+    telas[3].exibida=false;
+    telas[4].exibida=false;
+    telas[5].exibida=false;
+    /*
         for(let i=telas.length-1; i >=0; i--){
 
             if(telas[i].exibida===true){
@@ -108,61 +113,119 @@ export default class Main extends React.Component {
      this.setState({telas: telas});
  }
 
- 
 
+ verTorreIgreja = ()=>{
+    let {telas} = this.state;
+
+    telas[0].exibida=false;
+    telas[1].exibida=true;
+    telas[2].exibida=true;
+    telas[3].exibida=false;
+    telas[4].exibida=false;
+    telas[5].exibida=false;
+
+    this.setState({telas});
+ }
+
+
+ verMoinho = ()=>{
+  let {telas} = this.state;
+
+  telas[0].exibida=false;
+  telas[1].exibida=false;
+  telas[2].exibida=false;
+  telas[3].exibida=false;
+  telas[4].exibida=true;
+  telas[5].exibida=false;
+
+  this.setState({telas});
+}
 
  render(){
-
       let telaAtualObj = this.state.telas.filter(Telas);
         //descobrindo qual pagina o 'return'(mais abaixo) vai renderizar
       function Telas(tela)  {
           return tela.exibida===true;
       }
       
-      let componenteDaTela;
-      let botao;
+      {/*}
+      if(this.state.player.tempoTorreIgreja != null){
+        alert("Tempo total no moinho: "+this.state.player.tempoTorreIgreja[0]+"min /"+this.state.player.tempoTorreIgreja[1]+"secs");
+      }*/}
+
+      let 
+        componenteDaTela, 
+               botoes = [], 
+                   BotaoTelaSelecao = <img onClick={ ()=> this.verTelaSelecao() } id="botaoTelaSelecao" />;
+
 
       switch(telaAtualObj[0].nome){
 
         case 'Login':
-           componenteDaTela =  <Login ctxCanvas={this}/> ; 
-          /// botao = <input type="button" value="ENTRAR!" className="botaoEntrar" onClick={this.entrar()}/>
+           componenteDaTela = <Login ctxCanvas={this}/>;
+           botoes[0] = componenteDaTela; 
            break;
 
-           /*
-        case 'Porta do reino':
-           componenteDaTela =  <PortaReino /> ;break;
-           */
-
-        case 'Seleção de games':
-           componenteDaTela =  <SelecaoGames /> ;//botão da direita
-           botao =  <button onClick={ ()=> this.verRanking() } className="castelo"> <span >Castelo</span></button>
+        case 'SelecaoGames':
+           componenteDaTela = <SelecaoGames mainState={this}/> ;//botão da direita
+           botoes[0] = componenteDaTela;
            break;
 
-        case 'Rank':
+        case 'Castelo':
+           componenteDaTela = <Castelo ctxMain={this}/> ;//botão de cima
+           botoes[0] = componenteDaTela;
+           botoes[1] = BotaoTelaSelecao;
+           break;
 
-           console.log("Antes de entrar no Rank: "+this.state);
+        case "TorreIgreja":
+           componenteDaTela = <TorreIgreja />;
+           botoes[0] = componenteDaTela;//inserindo o botão que leva à tela de seleção de jogos no jogo da torre da igreja 
+           //botoes[1] = moldura;
+           botoes[1] = BotaoTelaSelecao;
+           botoes[2] = <Contador ctxMain={[this, "TorreIgreja"]} jogo={"TorreIgreja"}/>;;
 
-           componenteDaTela =  <Rank estadoMain={this.state}/> ;//botão de cima
-           botao = <button onClick={ ()=> this.verTelaDeSelecao() } className="botao2"> <span>{'<='} Selecionar jogo</span></button>;
+           //botao = botoes.map(btn => btn);
+           break;
+
+        case "Moinho":
+           componenteDaTela = <Moinho ctxMain={[this, "Moinho"]} />;
+           botoes[0] = componenteDaTela;
+           botoes[1] = BotaoTelaSelecao;
+           botoes[2] = <Contador ctxMain={[this, "Moinho"]}/>;;
+           break;
+
+        case "Laboratorio":
+           componenteDaTela = <Laboratorio ctxMain={[this, "Laboratorio"]} />;
+           botoes[0] = componenteDaTela;
+           botoes[1] = BotaoTelaSelecao;
+           botoes[2] = <Contador ctxMain={[this, "Laboratorio"]} />;
            break;
 
         default: 
-            alert("Não foi possível mudar de tela :/");
-            break;
+           alert("Não foi possível mudar de tela :/");
+           break;
         }
-
 
         return( 
            <div>
-              <h1 className="TituloDoCentro"> Tela de {telaAtualObj[0].nome}</h1>
-              
-               <Canvas valor={ {value: true}}>
-                      {componenteDaTela }
+              {/* <h1 className="TituloDoCentro"> Tela de {telaAtualObj[0].nome}</h1> */}
+
+               <Canvas grid={ {value: false}}>
+                      {botoes}
                </Canvas>
                
-                {botao}
-             </div> 
+               {/*
+               
+               moldura
+
+               <Canvas grid={ {value: false}}>
+                      {componenteDaTela}
+               </Canvas>
+               
+               */}
+
+
+           </div> 
         );
    };
 }

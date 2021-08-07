@@ -1,12 +1,11 @@
 import React from 'react';
-import {ReactComponent as TelaLogin} from '../images/porta/Porta_oficial_ultimate.svg';
+import TelaLogin from '../images/backgrounds/portaPrincipal.png';
 import '../styles/LoginStyle.css';
+//import {ReactComponent as placa} from '..images/';
 
 //import {Estilo} from '../styles/StyleJS.js';
 //import {Styles} from '../styles/BackgroundStyle.module.css'; 
 //para esses dois ultimos comandos funcionarem é necessário instalar o package "react-cssmodules"
-
-//style={{height: 'auto', width: '500px', position: 'absolute', left: 0, top: 0, border: '1px double red'}}>
 
 export default function Login(props){
    /*
@@ -18,30 +17,56 @@ export default function Login(props){
    function entrar(){
       let nomeRecebido = document.getElementById("nomeText").value;
 
-      props.ctxCanvas.setState({
-         telas: [
-            {nome: nomeRecebido, exibida: false}, 
-           // {nome: 'Porta do reino', exibida: false}, 
-            {nome: 'Seleção de games', exibida: true}, 
-            {nome: 'Rank', exibida: false}
-          ]
-       });
-   }
+      if(nomeRecebido.length){
+
+          // let {jogador, salvarPlayer} = require("../DadosJogador.js");
+           //jogador.name = nomeRecebido;
+
+           props.ctxCanvas.setState( (estadoMain) => ({//alterando o estado do componente "Main" via props
+
+               telas: estadoMain.telas.map( (tela)=>{
+
+                  if(tela.nome == "SelecaoGames")
+                        return {...tela, exibida: true}
+                  else
+                        return {...tela, exibida: false}
+               }),
+
+               player: {
+                  ...estadoMain.player,
+                  nome: nomeRecebido
+               }
+                  
+           }));
+
+         //window.localStorage.setItem(document.getElementById("nomeText"), jogador);
+         //salvarPlayer(jogador);
+         //alert(props.ctxCanvas.state.telas[5].exibida);
+      }else{
+           alert("Escreva seu nome!");
+      }
+
+  }
+
+   const reajustarFundo = require("../funcoesGerais.js");
 
    return (
       <div>
-         
-            <form className="formulario">
-             
-                 <div className="fundoEscrevaNome">
+            <div id="boxNomeJogador">
+                 {/*
+                   <div className="fundoEscrevaNome">
                      <label><span className="InsiraSeuNome">Insira o seu nome: </span></label>
                      
                      <input id="nomeText" type="text" placeholder="Player name" />
-                 </div>
-                 <input type="button" value="ENTRAR!" className="botaoEntrar" onClick={()=>entrar()}/>
-            </form>
+                   </div> 
+               */}
 
-          <TelaLogin className="imagemInserida"/>
+                 <input id="nomeText" type="text" placeholder="Player name" />
+
+                 <button value="ENTRAR!" id="botaoEntrar" onClick={() => entrar()}>ENTRAR</button>
+            </div>
+
+            <img src={TelaLogin} style={reajustarFundo()} alt="Bem vindo :)"/>
       </div>
    );
 }
