@@ -21,10 +21,7 @@ class Canvas extends Component{
 class Canvas extends React.Component{
    //alert("largura da janela: "+window.innerWidth+"/ Altura da janela: "+window.innerHeight);
   //1304x697 = 1,870875179340029 (proporção da janela)
-  constructor(props){
-       super(props);
-  }
-
+  
   componentDidMount(){
       if(this.props.grid.value){ 
             this.desenharGrid();

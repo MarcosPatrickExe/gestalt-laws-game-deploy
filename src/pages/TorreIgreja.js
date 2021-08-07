@@ -456,12 +456,12 @@ function verficarMedalhao(estadoAtual){
 
     let objetos = Object
           .values(document.getElementsByTagName("div"))
-              .filter( (obj)=> (obj.className == "circuloCentro") || 
-                                        (obj.className == "taca") ||    
-                                    (obj.className == "baixoDir") || 
-                                    (obj.className == "baixoEsq") ||
-                                     (obj.className == "cimaDir") ||
-                                    (obj.className == "cimaEsq"));
+              .filter( (obj)=> (obj.className === "circuloCentro") || 
+                                        (obj.className === "taca") ||    
+                                    (obj.className === "baixoDir") || 
+                                    (obj.className === "baixoEsq") ||
+                                     (obj.className === "cimaDir") ||
+                                    (obj.className === "cimaEsq"));
 
 
    if(objetos.length==0) {

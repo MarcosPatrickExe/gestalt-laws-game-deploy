@@ -56,7 +56,7 @@ export default function Castelo(props){
    let novosValores = valores.map(
       (elemento, index)=>{
 
-       if(index == 0){
+       if(index === 0){
           return elemento;
        }else{
          //let result = new Array(6,2);
@@ -129,7 +129,7 @@ export default function Castelo(props){
             </tbody>
           </table>
   
-         <img src={CenarioCastelo} style={estiloFundo()} /> 
+         <img src={CenarioCastelo} style={estiloFundo()} alt="Ranking dos jogadores" /> 
      </div>
    );
 }                 

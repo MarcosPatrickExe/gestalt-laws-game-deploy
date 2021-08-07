@@ -26,11 +26,11 @@ class Contador extends Component{
             setInterval( ()=>{
                if(!this._isUnmouted){
 
-                    if(this.state.segundos == 59){
+                    if(this.state.segundos === 59){
 
                         let aux = this.state.time.map(
                             (minutoSegundo, index)=> {
-                                return (index==0) ? ++minutoSegundo : 0;
+                                return (index===0) ? ++minutoSegundo : 0;
                             });
 
                         this.setState({
@@ -40,7 +40,7 @@ class Contador extends Component{
                     }else{
                     // console.log("this.state: "+this.state.segundos);
                         this.setState({
-                                segundos: ++this.state.segundos
+                                segundos: (1 + this.state.segundos)
                         });
                     }
 
@@ -69,6 +69,8 @@ class Contador extends Component{
                                 console.log("testantando tempo em laboratorio: ");
                                 console.dir(JSON.stringify(this.ctxMain[0].state.player, null, 4));
                             break;
+
+                            default: console.log("não foi possível acessar o estado da classe geral 'Main'"); 
                         }
                  }
 

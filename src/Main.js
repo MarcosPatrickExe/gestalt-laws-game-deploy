@@ -148,15 +148,15 @@ export default class Main extends React.Component {
           return tela.exibida===true;
       }
       
-      {/*}
+      {/*
       if(this.state.player.tempoTorreIgreja != null){
         alert("Tempo total no moinho: "+this.state.player.tempoTorreIgreja[0]+"min /"+this.state.player.tempoTorreIgreja[1]+"secs");
-      }*/}
+      */}
 
       let 
         componenteDaTela, 
                botoes = [], 
-                   BotaoTelaSelecao = <img onClick={ ()=> this.verTelaSelecao() } id="botaoTelaSelecao" />;
+                   BotaoTelaSelecao = <img onClick={ ()=> this.verTelaSelecao() } id="botaoTelaSelecao" alt="Voltar à tele de seleção de jogos" />;
 
 
       switch(telaAtualObj[0].nome){

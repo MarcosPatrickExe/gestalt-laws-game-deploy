@@ -20,7 +20,7 @@ export default function SelecaoGames(props){
        mainState.setState({
             telas: mainState.state.telas.map( (tela)=>{
 
-              if(tela.nome == "Castelo")
+              if(tela.nome === "Castelo")
                     return {...tela, exibida: true}
               else
                     return {...tela, exibida: false}
@@ -36,7 +36,7 @@ export default function SelecaoGames(props){
         mainState.setState({
             telas: mainState.state.telas.map( (tela)=>{
 
-              if(tela.nome == "TorreIgreja")
+              if(tela.nome === "TorreIgreja")
                     return {...tela, exibida: true}
               else
                     return {...tela, exibida: false}
@@ -53,7 +53,7 @@ export default function SelecaoGames(props){
           mainState.setState({
             telas: mainState.state.telas.map( (tela)=>{
 
-              if(tela.nome == "Laboratorio")
+              if(tela.nome === "Laboratorio")
                     return {...tela, exibida: true}
               else
                     return {...tela, exibida: false}
@@ -69,7 +69,7 @@ export default function SelecaoGames(props){
           mainState.setState({
             telas: mainState.state.telas.map( (tela)=>{
 
-              if(tela.nome == "Moinho")
+              if(tela.nome === "Moinho")
                     return {...tela, exibida: true}
               else
                     return {...tela, exibida: false}

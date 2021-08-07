@@ -8,7 +8,7 @@ export default function Moinho(){
 
    return (
       <div>
-            <img src={MoinhoFundo} style={moinhoFundoEstilo()} />
+            <img src={MoinhoFundo} style={moinhoFundoEstilo()} alt="Moinho - visao interna" />
       </div>
    );
 }

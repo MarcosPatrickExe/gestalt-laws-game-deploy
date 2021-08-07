@@ -26,7 +26,7 @@ export default function Login(props){
 
                telas: estadoMain.telas.map( (tela)=>{
 
-                  if(tela.nome == "SelecaoGames")
+                  if(tela.nome === "SelecaoGames")
                         return {...tela, exibida: true}
                   else
                         return {...tela, exibida: false}

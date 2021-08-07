@@ -7,6 +7,6 @@ export default function Laboratorio(){
 
     return (
       <div>
-            <img src={FundoLaboratorio} style={estiloLabFundo()} />
+            <img src={FundoLaboratorio} style={estiloLabFundo()} alt="Laboratorio - visao interna" />
      </div>);
 }
