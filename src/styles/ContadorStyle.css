@@ -31,12 +31,11 @@
 }
 
 #segundos{
-    position: relative;
+    position: absolute;
     font-size: 560%;
-    left: 0;
-    top: 0;
-    margin-left: 25%;
-    margin-top: -44%;
+    left: 12%;
+    top: 39%;
+    margin: 0;
     color: white;
     z-index: 150;
     text-shadow: 5px 5px 0px rgb(70, 49, 17);

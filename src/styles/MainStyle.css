@@ -1,3 +1,5 @@
+*{ margin: 0; padding: 0; }
+
 :root{
     --widthHeightHomeButton: 130px;
     --corDosBotoes: rgb(85, 85, 85);
@@ -110,7 +112,7 @@ span{
     box-shadow: 1px 2px 0px 2px rgb(3, 2, 63);
 }
 #botaoMoinho:hover{ cursor: url("../images/cursor/curse.png"), auto; }
-*/
+
 
 
 
@@ -128,3 +130,4 @@ span{
 .laboratorio:hover{
     cursor: not-allowed;
 }
+*/

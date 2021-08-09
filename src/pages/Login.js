@@ -7,6 +7,11 @@ import '../styles/LoginStyle.css';
 //import {Styles} from '../styles/BackgroundStyle.module.css'; 
 //para esses dois ultimos comandos funcionarem é necessário instalar o package "react-cssmodules"
 
+
+//resolução 1920x1080
+//resolução 1334x1200
+
+
 export default function Login(props){
    /*
      <img className="imagemInserida" 
@@ -59,7 +64,7 @@ export default function Login(props){
                      
                      <input id="nomeText" type="text" placeholder="Player name" />
                    </div> 
-               */}
+                */}
 
                  <input id="nomeText" type="text" placeholder="Player name" />
 

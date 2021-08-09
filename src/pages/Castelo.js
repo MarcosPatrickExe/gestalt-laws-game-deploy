@@ -53,6 +53,11 @@ export default function Castelo(props){
       ['wwwww','XminYs'],
    ]
 
+   /**link para resolver o problema da message "Treating warnings as errors because process.env.CI = true. Failed to compile":  
+    * https://stackoverflow.com/questions/62663451/treating-warnings-as-errors-because-process-env-ci-true-failed-to-compile
+   */
+
+
    let novosValores = valores.map(
       (elemento, index)=>{
 

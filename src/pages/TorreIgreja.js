@@ -40,27 +40,27 @@ class TorreIgreja extends React.Component{
             distanciasXY: {X: 0, Y: 0},
 
             pedacosMedalhao: {
-                circuloCentro: { left:  100+"px",  top: 553+"px"},
-                baixoDir:      { left:  210+"px",  top: 430+"px"},
-                baixoEsq:      { left:  480+"px",  top: 590+"px"},
-                cimaDir:       { left:  1020+"px", top: 540+"px"},
-                cimaEsq:       { left:  570+"px",  top: 130+"px"},
-                taca:          { left:  100+"px",  top: 290+"px"}
+                circuloCentro: { left:   30+"%",   top: 84+"%"},
+                baixoDir:      { left:   81+"%",   top: 82+"%"},
+                baixoEsq:      { left:    8+"%",   top: 80+"%"},
+                cimaDir:       { left:   29+"%",   top: 45+"%"},
+                cimaEsq:       { left:   46+"%", top: 18.5+"%"},
+                taca:          { left:   18+"%",   top: 55+"%"}
             },
 
             objetosCenario: {
-                barril:        { left:   60+"px",  top: 440+"px"},
-                caneca:        { left:  800+"px",  top: 300+"px"},
-                escudoMesa:    { left:  380+"px",  top: 485+"px"},
-                escudoParede:  { left:   30+"px",  top:  220+"px"},
-                machado:       { left:  830+"px",  top: 530+"px"},
-                tampa:         { left:  940+"px",  top: 370+"px"},
-                jarra:         { left:  180+"px",  top: 300+"px"},
-                armadura:      { left: 1030+"px",  top: 205+"px"},
-                machadoGrande: { left:  330+"px",  top: 300+"px"},
-                caneta:        { left:  730+"px",  top: 240+"px"},
-                papel:         { left:  960+"px",  top: 510+"px"},
-                pergaminho:    { left:  360+"px",  top: 240+"px"}
+                barril:        { left:    5+"%",  top: 63+"%"},
+                caneca:        { left:   61+"%",  top: 41+"%"},
+                escudoMesa:    { left:   25+"%",  top: 70+"%"},
+                escudoParede:  { left:  2.5+"%",  top: 31+"%"},
+                machado:       { left:   60+"%",  top: 85+"%"},
+                tampa:         { left:   76+"%",  top: 53+"%"},
+                jarra:         { left:   16+"%",  top: 40+"%"},
+                armadura:      { left:   83+"%",  top: 30+"%"},
+                machadoGrande: { left:   28+"%",  top: 43+"%"},
+                caneta:        { left:   68+"%",  top: 32+"%"},
+                papel:         { left:   78+"%",  top: 74+"%"},
+                pergaminho:    { left:   80+"%",  top: 40+"%"}
             },
 
             medalhaoCompleto: false
@@ -80,7 +80,7 @@ class TorreIgreja extends React.Component{
     }
 
     dragend = (evt)=>{
-        
+
         let newPositionX = (evt.clientX - this.state.distanciasXY.X)+"px";
         let newPositionY = (evt.clientY - this.state.distanciasXY.Y)+"px";
 
@@ -201,106 +201,108 @@ class TorreIgreja extends React.Component{
       //console.dir(JSON.stringify(this.state, null, 4));
       
 
- /*------------------------------------OBJETOS DO CENÁRIO DA TORRE DA IGREJA-------------------------------------------*/
-      return(
-        <div>
+      let moreObjects = [
             <div id="barril" style={this.state.objetosCenario.barril} className="objetos" draggable="true"> 
                 <Barril /> 
             </div> 
-
+            ,
             <div id="caneca" style={this.state.objetosCenario.caneca} className="objetos" draggable="true"> 
                 <Caneca />  
-            </div>
-
+            </div> 
+            ,
             <div id="escudoMesa" style={this.state.objetosCenario.escudoMesa} className="objetos" draggable="true"> 
                 <EscudoMesa  /> 
             </div>
-
+            ,
             <div id="escudoParede" style={this.state.objetosCenario.escudoParede} className="objetos" draggable="true"> 
                 <EscudoParede/>  
             </div>
-
+            ,
             <div id="machado" style={this.state.objetosCenario.machado} className="objetos" draggable="true"> 
                 <Machado /> 
             </div>
-
+            ,
             <div id="tampa" style={this.state.objetosCenario.tampa} className="objetos" draggable="true"> 
                 <Tampa /> 
             </div>
-
+            ,
             <div id="jarra" style={this.state.objetosCenario.jarra} className="objetos" draggable="true"> 
                 <Jarra /> 
             </div>
-
-            <div id="armadura" style={this.state.objetosCenario.armadura} className="objetos" draggable="true"> 
+            ,
+            <div id="armadura" style={this.state.objetosCenario.armadura} className="objetos" draggable="false"> 
                 <Armadura /> 
             </div>
-
+            ,
             <div id="machadoGrande" style={this.state.objetosCenario.machadoGrande} className="objetos" draggable="true"> 
                 <img draggable="false" src={MachadoGrande}  alt="machado grande"/> 
             </div>
-
+            ,
             <div id="caneta"  style={this.state.objetosCenario.caneta} className="objetos" draggable="true"> 
                  <img draggable="false" src={Caneta} alt="caneta"/>
             </div>
-
+            ,
             <div id="papel" style={this.state.objetosCenario.papel} className="objetos" draggable="true"> 
                  <img draggable="false" src={Papel} alt="papel"/> 
             </div>
-
+            ,
             <div id="pergaminho"  style={this.state.objetosCenario.pergaminho} className="objetos" draggable="true"> 
                  <img draggable="false" src={Pergaminho} alt="pergaminho" /> 
             </div>
+            ,
 
-
-            {/* Item que representa o fundo do cenário: */}
+            //Item que representa o fundo do cenário: 
             <img draggable="false" style={reajustarFundo()} src={TorreCenario} alt="cenário da torre da igreja"/>
+            ,
+            /*----------------------------ENCERRAMENTO DOS OBJETOS DO CENÁRIO DA TORRE DA IGREJA-------------------------------------------*/
 
-            {/*----------------------------ENCERRAMENTO DOS OBJETOS DO CENÁRIO DA TORRE DA IGREJA-------------------------------------------*/}
+
+            /*----------------------------INSERINDO PEDAÇOES DO MEDALHÃO NO CENÁRIO DA TORRE DA IGREJA-------------------------------------------*/
 
 
-            {/*----------------------------INSERINDO PEDAÇOES DO MEDALHÃO NO CENÁRIO DA TORRE DA IGREJA-------------------------------------------*/}
-
-            <div id="centroMedalhao" className="centroMedalhao" draggable="false" > 
-                 {/* <CentroMedalhao  />  */}
-                {/* <img draggable="false" src={CentroMedalhao} />*/}
-            </div>
-
-            {/* {this.state.pedacosMedalhao.circuloCentro.top=="143px"? "circuloCentroEncaixe":""}*/}
+            //<centroMedalhao  /> <img draggable="false" src={CentroMedalhao} />
+            <div id="centroMedalhao" className="centroMedalhao" draggable="false"> </div>
+            ,
+            // {this.state.pedacosMedalhao.circuloCentro.top=="143px"? "circuloCentroEncaixe":""}
             <div id="taca"  style={this.state.pedacosMedalhao.taca} className="taca" draggable="true"> 
                  <img draggable="false" src={Taca} alt="taça" /> 
             </div>
-
+            ,
             <div id="cimaEsq"  style={this.state.pedacosMedalhao.cimaEsq} className="cimaEsqEncaixe" draggable="true"> 
                  <img draggable="false" src={CimaEsq} alt="parte do medalhão" /> 
             </div>
-
+            ,
             <div id="cimaDir"  style={this.state.pedacosMedalhao.cimaDir} className="cimaDir" draggable="true"> 
                  <img draggable="false" src={CimaDir} alt="parte do medalhão" /> 
             </div>
-
+            ,
             <div id="baixoEsq"  style={this.state.pedacosMedalhao.baixoEsq} className="baixoEsq" draggable="true"> 
                  <img draggable="false" src={BaixoEsq} alt="parte do medalhão" /> 
             </div>
-
+            ,
             <div id="baixoDir"  style={this.state.pedacosMedalhao.baixoDir} className="baixoDir" draggable="true"> 
                  <img draggable="false" src={BaixoDir}  alt="parte do medalhão"/> 
             </div>
-
+            ,
             <div id="circuloCentro" style={this.state.pedacosMedalhao.circuloCentro} className="circuloCentro" draggable="true"> 
                  <img draggable="false" src={CirculoCentro} alt="parte do medalhão" /> 
             </div>
 
-            {/*---------------ENCERRAMENTO DO CÓDIGO DE INSERÇÃO DOS PEDAÇOS DO MEDALHÃO (DO CENTRO DA PAREDE)---------------------------*/}
+            //---------------ENCERRAMENTO DO CÓDIGO DE INSERÇÃO DOS PEDAÇOS DO MEDALHÃO (DO CENTRO DA PAREDE)---------------------------
         
 
-            {/*
+            /*
                 exibirMensagemFinal &&(
                     <div id="mensagemFinal" style={{zIndex: 1000, position: "absolute", left: "30%", top: "20%", backgroundColor: "blue", height: "300px", width: "400px"}}>
                     </div>
                 )
-            */}
+            */
+      ];
 
+ /*------------------------------------OBJETOS DO CENÁRIO DA TORRE DA IGREJA-------------------------------------------*/
+      return(
+        <div>
+            {moreObjects}
         </div>);
    }
 
@@ -336,8 +338,8 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.remove("circuloCentro");
                     objetoPeca.classList.add("circuloCentroEncaixe");
  
-                    estadoCenario.setState(
-                        {  pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao,  circuloCentro: { left: 584+"px", top: 143+"px" } }
+                    estadoCenario.setState({  
+                        pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao,  circuloCentro: { left: 47+"%",  top: 20.6+"%" }}
                     });
                  break;
 
@@ -346,7 +348,7 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.add("tacaEncaixe");
  
                     estadoCenario.setState(
-                        { pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, taca: { left: 600+"px", top: 144+"px" } }
+                        { pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, taca: {left: 48.4+"%",  top:  20.7+"%" } }
                     });
                  break;
 
@@ -354,7 +356,7 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.remove("cimaDir");
                     objetoPeca.classList.add("cimaDirEncaixe");
  
-                    estadoCenario.setState({ pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, cimaDir: { left: 641+"px", top: 130+"px" } } //left: 641px; top: 130px;
+                    estadoCenario.setState({ pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, cimaDir: { left:  51.6+"%",top:  18.7+"%" } } //left: 641px; top: 130px;
                     });
                  break;
 
@@ -362,7 +364,7 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.remove("cimaEsq");
                     objetoPeca.classList.add("cimaEsqEncaixe");
  
-                    estadoCenario.setState({ pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, cimaEsq: { left: 570+"px", top: 130+"px" } }//left: 570px; top: 130px;
+                    estadoCenario.setState({ pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, cimaEsq: { left:  46+"%",  top: 18.5+"%" } }//left: 570px; top: 130px;
                     });
                  break;
 
@@ -370,7 +372,7 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.remove("baixoDir");
                     objetoPeca.classList.add("baixoDirEncaixe");
  
-                    estadoCenario.setState({  pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, baixoDir: { left: 640+"px", top: 180+"px" } }//left: 640px; top: 180px;
+                    estadoCenario.setState({  pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, baixoDir: { left: 51.4+"%",  top: 25.9+"%" } }//left: 640px; top: 180px;
                     });
                  break;
 
@@ -378,7 +380,7 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.remove("baixoEsq");
                     objetoPeca.classList.add("baixoEsqEncaixe");
  
-                    estadoCenario.setState({  pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, baixoEsq: { left: 572+"px", top: 180+"px" }}//left: 572px; top: 180px;
+                    estadoCenario.setState({  pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, baixoEsq: { left:  46+"%",  top: 26.1+"%" }}//left: 572px; top: 180px;
                     });
                  break;
 
@@ -388,7 +390,7 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
         }else{//se a peça do medalhão for retirada  do slot ela receberá a sua classe original
            
             objetoPeca.cair= true;
-           
+
             switch(objetoPeca.className){
                case "circuloCentroEncaixe":
                     objetoPeca.classList.remove("circuloCentroEncaixe");
@@ -424,7 +426,6 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
            }
         }
     }else{ objetoPeca.cair= true;}
-
 }
 
 

@@ -4,7 +4,7 @@ import {ReactComponent as MolduraContador} from './images/contadorMoldura.svg';
 import './styles/ContadorStyle.css';
 
 class Contador extends Component{
-    _isUnmouted = false;
+    _isUnmouted = false
 
     constructor(props){
        super(props);
@@ -46,9 +46,9 @@ class Contador extends Component{
 
 
                     //atualizando o state do componente 'Main'
-                    let tempoTotal = [ this.state.time[0], this.state.segundos];
+                    let tempoTotal = [this.state.time[0], this.state.segundos];
 
-                        switch(this.ctxMain[1]){
+                    switch(this.ctxMain[1]){
                             case "TorreIgreja": 
                              
                                this.ctxMain[0].tempoGeral.tempoTorreIgreja = tempoTotal;
@@ -71,22 +71,45 @@ class Contador extends Component{
                             break;
 
                             default: console.log("não foi possível acessar o estado da classe geral 'Main'"); 
-                        }
+                     }
                  }
 
+            
             }, 1000);
         }, 2000);
     }
 
-
+/*
+    formatTime = function(){
+        if(this.state.time[0] >= 0 || this.state.time[0] <= 9){
+             this.min = "0"+this.state.time[0];
+        }else{
+             this.min = null;
+             this.min = toString(this.state.time[0]);
+        }
+         
+        if(this.state.time[1] >= 0 || this.state.time[1] <= 9){
+            this.sec = "0"+this.state.segundos;
+        }else{
+            this.sec = null;
+            this.sec = toString(this.state.segundos);
+        }
+    }
+*/
     render(){
+        //const formatTime = forTime.bind(this);
+
         return(
           <div>
                 <div className="contadorBox">
                      <MolduraContador id="imgMoldura" />
-                     <h2 id="segundos">{this.state.time[0]}:{this.state.segundos}</h2>
+                    
+                     <h2 id="segundos">
+                          {(this.state.time[0]>=0 && this.state.time[0]<=9) &&(0)}{this.state.time[0]}:
+                          {(this.state.segundos>=0 && this.state.segundos<=9) &&(0)}{this.state.segundos}
+                     </h2>
+
                 </div>
-                
           </div>
         );
     }

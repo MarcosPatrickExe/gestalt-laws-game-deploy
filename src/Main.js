@@ -36,29 +36,37 @@ export default class Main extends React.Component {
         this.state={//A variavel 'state' será responsável por gerenciar as telas que são exibidas!
             telas: [
               {nome: "SelecaoGames", exibida: false}, 
-              {nome: "TorreIgreja", exibida: false},
+              {nome: "TorreIgreja", exibida: true},
               {nome: "Laboratorio", exibida: false},
               {nome: "Castelo", exibida: false},
               {nome: 'Moinho', exibida: false},
-              {nome: "Login", exibida: true}
+              {nome: "Login", exibida: false}
             ],
 
             player: {
                nome: ""
-            }
+            },
+
+            showGrid: true
       }
+
+      document.addEventListener("keydown", this.digitou);
  }
 
+ digitou = ()=>{
+   this.setState({showGrid: (!this.state.showGrid) });
+ }
 
  verRanking =()=>{
     let {telas} = this.state;
 
-    telas[0].exibida=false;
-    telas[1].exibida=false;
-    telas[2].exibida=false;
-    telas[3].exibida=true;
-    telas[4].exibida=false;
-    telas[5].exibida=false;
+    telas = telas.map( tela=>{
+        if (tela.nome=="Castelo")
+            return {...tela, exibida: true}
+        else
+            return {...tela, exibida: false}
+    });
+
     /*For que permitirá a navegação entre as telas posteriormente:
      for(let i=0; i< telas.length; i++){
  
@@ -85,12 +93,12 @@ export default class Main extends React.Component {
  verTelaSelecao =()=>{
     let {telas} = this.state;
 
-    telas[0].exibida=true;
-    telas[1].exibida=false;
-    telas[2].exibida=true;
-    telas[3].exibida=false;
-    telas[4].exibida=false;
-    telas[5].exibida=false;
+    telas = telas.map( tela=>{
+      if (tela.nome=="SelecaoGames")
+          return {...tela, exibida: true}
+      else
+          return {...tela, exibida: false}
+  });
     /*
         for(let i=telas.length-1; i >=0; i--){
 
@@ -117,12 +125,12 @@ export default class Main extends React.Component {
  verTorreIgreja = ()=>{
     let {telas} = this.state;
 
-    telas[0].exibida=false;
-    telas[1].exibida=true;
-    telas[2].exibida=true;
-    telas[3].exibida=false;
-    telas[4].exibida=false;
-    telas[5].exibida=false;
+    telas = telas.map( tela=>{
+      if (tela.nome=="TorreIgreja")
+          return {...tela, exibida: true}
+      else
+          return {...tela, exibida: false}
+  });
 
     this.setState({telas});
  }
@@ -131,12 +139,12 @@ export default class Main extends React.Component {
  verMoinho = ()=>{
   let {telas} = this.state;
 
-  telas[0].exibida=false;
-  telas[1].exibida=false;
-  telas[2].exibida=false;
-  telas[3].exibida=false;
-  telas[4].exibida=true;
-  telas[5].exibida=false;
+  telas = telas.map( tela=>{
+    if (tela.nome=="Moinho")
+        return {...tela, exibida: true}
+    else
+        return {...tela, exibida: false}
+});
 
   this.setState({telas});
 }
@@ -210,7 +218,7 @@ export default class Main extends React.Component {
            <div>
               {/* <h1 className="TituloDoCentro"> Tela de {telaAtualObj[0].nome}</h1> */}
 
-               <Canvas grid={ {value: false}}>
+               <Canvas grid={this.state.showGrid}>
                       {botoes}
                </Canvas>
                

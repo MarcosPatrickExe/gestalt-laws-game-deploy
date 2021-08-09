@@ -23,7 +23,7 @@ class Canvas extends React.Component{
   //1304x697 = 1,870875179340029 (proporção da janela)
   
   componentDidMount(){
-      if(this.props.grid.value){ 
+      if(this.props.grid){ 
             this.desenharGrid();
       }
   }
@@ -36,9 +36,10 @@ class Canvas extends React.Component{
      // let distHoriz =  (window.innerWidth - largura)/2;//pegando distância do canvas às bordas esqueda e direita da janela
      // let distVerti = (window.innerHeight - altura)/2;//pegando distância do canvas às bordas de cima e baxo da janela
 
-      for(let X=0; X < 1300; X+=50){
-          for(let Y=0; Y < 697; Y+=50){
+      for(let X=0; X < 1300; X+=100){
+          for(let Y=0; Y < 697; Y+=100){
             let coordenada = document.createElement("p");
+            coordenada.classList.add("coordenadas");
 
             ctx.beginPath();
             ctx.lineWidth = 2;
@@ -74,6 +75,7 @@ class Canvas extends React.Component{
 
     let ctx = this.refs.canvas.getContext('2d');
     ctx.clearRect(0, 0, largura, altura);
+    document.body.removeChild(document.getElementsByClassName("coordenadas"));
   }
 
   render(){
