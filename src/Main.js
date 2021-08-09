@@ -36,18 +36,18 @@ export default class Main extends React.Component {
         this.state={//A variavel 'state' será responsável por gerenciar as telas que são exibidas!
             telas: [
               {nome: "SelecaoGames", exibida: false}, 
-              {nome: "TorreIgreja", exibida: true},
+              {nome: "TorreIgreja", exibida: false},
               {nome: "Laboratorio", exibida: false},
               {nome: "Castelo", exibida: false},
               {nome: 'Moinho', exibida: false},
-              {nome: "Login", exibida: false}
+              {nome: "Login", exibida: true}
             ],
 
             player: {
                nome: ""
             },
 
-            showGrid: true
+            showGrid: false
       }
 
       document.addEventListener("keydown", this.digitou);
