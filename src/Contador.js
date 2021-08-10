@@ -13,7 +13,7 @@ class Contador extends Component{
 
        this.state= {
             time: [0, 0],
-            segundos: 0
+            segundos: 0,
        }
     }
 
@@ -24,7 +24,7 @@ class Contador extends Component{
 
        setTimeout( ()=>{
             setInterval( ()=>{
-               if(!this._isUnmouted){
+               if((!this._isUnmouted) && (this.ctxMain[0].pararContador===false)){
 
                     if(this.state.segundos === 59){
 
@@ -52,22 +52,19 @@ class Contador extends Component{
                             case "TorreIgreja": 
                              
                                this.ctxMain[0].tempoGeral.tempoTorreIgreja = tempoTotal;
-                               console.log("testantando tempo geral em TorreIgreja: ");
-                               console.dir(JSON.stringify(this.ctxMain[0].tempoGeral, null, 4));
+                               //console.dir(JSON.stringify(this.ctxMain[0].tempoGeral, null, 4));
                             break;
 
 
                             case "Moinho": 
                                 this.ctxMain[0].tempoGeral.tempoMoinho = tempoTotal;
-                                console.log("testantando tempo em moinho: ");
-                                console.dir(JSON.stringify(this.ctxMain[0].state.player, null, 4));
+                                //console.dir(JSON.stringify(this.ctxMain[0].state.player, null, 4));
                             break;
 
 
                             case "Laboratorio": 
                                 this.ctxMain[0].tempoGeral.tempoLaboratorio = tempoTotal;
-                                console.log("testantando tempo em laboratorio: ");
-                                console.dir(JSON.stringify(this.ctxMain[0].state.player, null, 4));
+                                //console.dir(JSON.stringify(this.ctxMain[0].state.player, null, 4));
                             break;
 
                             default: console.log("não foi possível acessar o estado da classe geral 'Main'"); 

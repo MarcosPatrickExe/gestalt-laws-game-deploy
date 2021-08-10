@@ -20,21 +20,23 @@ import Pergaminho from '../images/torreRelogio/Pergaminho.png';
 //import {ReactComponent as CentroMedalhao} from '../images/amuleto_partes_v2/medalhaoContornado1SVG.svg';
 
 //DEMAIS OBJETOS/OBSTÁCULOS DO CENÁRIO (em svg):
-import {ReactComponent as EscudoMesa} from '../images/torreRelogio/escudo - mesa.svg';
-import {ReactComponent as EscudoParede} from '../images/torreRelogio/escudo - parede.svg';
-import {ReactComponent as Barril} from '../images/torreRelogio/barril.svg';
-import {ReactComponent as Caneca} from '../images/torreRelogio/caneca.svg';
-import {ReactComponent as Jarra} from '../images/torreRelogio/Jarra.svg';
-import {ReactComponent as Machado} from '../images/torreRelogio/machado.svg';
-import {ReactComponent as Tampa} from '../images/torreRelogio/tampa.svg';
+//import {ReactComponent as EscudoMesa} from '../images/torreRelogio/escudo - mesa.svg';
+//import {ReactComponent as EscudoParede} from '../images/torreRelogio/escudo - parede.svg';
+//import {ReactComponent as Barril} from '../images/torreRelogio/barril.svg';
+//import {ReactComponent as Caneca} from '../images/torreRelogio/caneca.svg';
+//import {ReactComponent as Jarra} from '../images/torreRelogio/Jarra.svg';
+//import {ReactComponent as Machado} from '../images/torreRelogio/machado.svg';
+//import {ReactComponent as Tampa} from '../images/torreRelogio/tampa.svg';
 import {ReactComponent as Armadura} from '../images/torreRelogio/armadura.svg';
 
 
 class TorreIgreja extends React.Component{
    
-   constructor(){ 
-       super(); 
+   constructor(props){ 
+       super(props); 
     
+       this.ctxMain = props.contextoMain;//atribuindo o contexto (this) da classe "Main" à propriedade "this.ctxMain"
+
        this.state = {
             inicializar: true,
             distanciasXY: {X: 0, Y: 0},
@@ -60,10 +62,8 @@ class TorreIgreja extends React.Component{
                 machadoGrande: { left:   28+"%",  top: 43+"%"},
                 caneta:        { left:   68+"%",  top: 32+"%"},
                 papel:         { left:   78+"%",  top: 74+"%"},
-                pergaminho:    { left:   80+"%",  top: 40+"%"}
-            },
-
-            medalhaoCompleto: false
+                pergaminho:    { left:   30+"%",  top: 36+"%"}
+            }
        }
     }
 
@@ -203,35 +203,35 @@ class TorreIgreja extends React.Component{
 
       let moreObjects = [
             <div id="barril" style={this.state.objetosCenario.barril} className="objetos" draggable="true"> 
-                <Barril /> 
+                {/* <Barril /> */}
             </div> 
             ,
             <div id="caneca" style={this.state.objetosCenario.caneca} className="objetos" draggable="true"> 
-                <Caneca />  
+                {/* <Caneca /> */}  
             </div> 
             ,
             <div id="escudoMesa" style={this.state.objetosCenario.escudoMesa} className="objetos" draggable="true"> 
-                <EscudoMesa  /> 
+                {/* <EscudoMesa  />  */}
             </div>
             ,
             <div id="escudoParede" style={this.state.objetosCenario.escudoParede} className="objetos" draggable="true"> 
-                <EscudoParede/>  
+                {/* <EscudoParede/>  */}  
             </div>
             ,
             <div id="machado" style={this.state.objetosCenario.machado} className="objetos" draggable="true"> 
-                <Machado /> 
+                 {/* <img class="machado" alt="machado pequeno" */}
             </div>
             ,
             <div id="tampa" style={this.state.objetosCenario.tampa} className="objetos" draggable="true"> 
-                <Tampa /> 
+                {/*<img src={Tampa} alt="tampa do barril" /> */}
             </div>
             ,
             <div id="jarra" style={this.state.objetosCenario.jarra} className="objetos" draggable="true"> 
-                <Jarra /> 
+                {/* <Jarra /> */}
             </div>
             ,
             <div id="armadura" style={this.state.objetosCenario.armadura} className="objetos" draggable="false"> 
-                <Armadura /> 
+                 <Armadura />  
             </div>
             ,
             <div id="machadoGrande" style={this.state.objetosCenario.machadoGrande} className="objetos" draggable="true"> 
@@ -262,6 +262,23 @@ class TorreIgreja extends React.Component{
 
             //<centroMedalhao  /> <img draggable="false" src={CentroMedalhao} />
             <div id="centroMedalhao" className="centroMedalhao" draggable="false"> </div>
+            ,
+            <div id="avisoParabens" class="avisoParabensDesativado"> 
+                    <h2>Parabéns!!! <br /> 
+                    Você completou <br /> 
+                    o jogo em: <br />
+
+                       {this.ctxMain.tempoGeral.tempoTorreIgreja &&(this.ctxMain.tempoGeral.tempoTorreIgreja[0])}min 
+                     e {this.ctxMain.tempoGeral.tempoTorreIgreja &&(this.ctxMain.tempoGeral.tempoTorreIgreja[1])}s
+                    
+                    <br />
+                    
+                    <span style={{fontSize: "60%", top: "40", textAlign: "right", letterSpacing: "-10%"}}>
+                    Clique no botão <br />
+                    superior direito <br />
+                    para sair </span>
+                    </h2>
+            </div>
             ,
             // {this.state.pedacosMedalhao.circuloCentro.top=="143px"? "circuloCentroEncaixe":""}
             <div id="taca"  style={this.state.pedacosMedalhao.taca} className="taca" draggable="true"> 
@@ -466,9 +483,14 @@ function verficarMedalhao(estadoAtual){
 
 
    if(objetos.length==0) {
+        let mensagemFinal = document.getElementById("avisoParabens");
         let medalhao = document.getElementById("centroMedalhao");
+
         medalhao.classList.remove("centroMedalhao");
         medalhao.classList.add("centroMedalhaoCompleto");
+
+        mensagemFinal.classList.add("avisoParabensAtivado");
+        estadoAtual.ctxMain.pararContador = true;
 
         estadoAtual.setState({medalhaoCompleto: !(estadoAtual.state.medalhaoCompleto)});
    }

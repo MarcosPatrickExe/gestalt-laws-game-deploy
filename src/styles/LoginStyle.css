@@ -1,38 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Oval&display=swap');
+
 #boxNomeJogador{
     position: absolute;
-    left: 23%;
-    top: 30%;
-    height: 500px;
-    width: 600px;
+    left: 50%;
+    top: 52%;
+    height: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
     background-image: url('../images/porta/molduraNome.svg');
     background-repeat: no-repeat;
     z-index: 100;
 }
 
 input{
-    font-family: "georgia";
+    font-family: 'Nova Oval', cursive;
     position: absolute;
-    top: 21.0%;
+    top: 31.2%;
     left: 14.3%;
+    color: rgb(41, 39, 39);
     background-color: rgb(192, 192, 192);
-    height: 27px;
-    width: 420px;
+    height: 8%;
+    width: 70%;
     font-size: 20px;
     font-weight: bold;
 }
+input:hover{
+    color: rgb(224, 177, 133);
+    background-color: rgb(95, 42, 12);
+}
 
 #botaoEntrar{
-    background-color: rgb(255, 141, 10);
+    background-color: rgb(119, 64, 1);
     border-radius: 20px;
     height: 50px;
     width: 120px;
     font-weight: bold;
     font-size: 22px;
-    color: white;
-    box-shadow: -2px 2px 0px 3px rgb(97, 56, 3);
+    color: rgb(255, 234, 220);
+    box-shadow: -2px 2px 0px 3px rgb(49, 28, 1);
     text-shadow: 2.9em 2.9em 0.5em 2.0em black;
     margin-top: 25%;
     margin-left: 40%;
+    font-family: 'Nova Oval', cursive;
 }
 
 

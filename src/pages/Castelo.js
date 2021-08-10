@@ -86,51 +86,16 @@ export default function Castelo(props){
    
    return (
      <div>
-     {/*
-         <h3 id="nomePlayer">Patrick</h3>
-         <h4 id="tempo">00:00</h4> */}
-
          <table>
                <thead>
                   <tr>
-                     <th> Nome do jogador: </th>
+                     <th> Nome do <br /> jogador: </th>
                      <th> Tempo total: </th>
                   </tr>
                </thead>
                <tbody>
                 {linhas}
 
-{/*            
-               <tr>
-                  <td>{novosValores[0][0]}</td>
-                  <td>{novosValores[0][1]}</td>
-               </tr>
-            
-               <tr>
-                  <td>{novosValores[1][0]}</td>
-                  <td>{novosValores[1][1]}</td>
-               </tr>
-
-               <tr>
-                  <td>{novosValores[2][0]}</td>
-                  <td>{novosValores[2][1]}</td>
-               </tr>
-
-               <tr>
-                  <td>{novosValores[3][0]} </td>
-                  <td>{novosValores[3][1]}</td>
-               </tr>
-
-               <tr>
-                  <td>{novosValores[4][0]}</td>
-                  <td>{novosValores[4][1]}</td>
-               </tr>
-
-               <tr>
-                  <td>{novosValores[5][0]}</td>
-                  <td>{novosValores[5][1]}</td>
-               </tr>
-          */}
             </tbody>
           </table>
   

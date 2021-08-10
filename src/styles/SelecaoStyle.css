@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Oval&display=swap');
+
 :root{
     --corDosBotoes: rgb(85, 85, 85);
     --leftPlacas: 33.2%;
 }
 
-/*
-style={{position: 'absolute', width: 200+'px', height: 'auto', left: '200px', top: '30px',
-    zIndex: 30}} 
-*/
+h3{ 
+    color: rgb(61, 42, 5);
+    font-size: 390%;
+    font-family: 'Nova Oval', cursive; 
+    text-align: center; 
+    line-height: 2.1;
+    /*
+    text-shadow: 3px 3px 2px rgb(70, 45, 25), -3px -3px 2px rgb(59, 34, 15);
+    */
+}
 
 .placaTorreRelogio:hover{
     transition-property: all;
@@ -31,14 +39,10 @@ style={{position: 'absolute', width: 200+'px', height: 'auto', left: '200px', to
 
 
 
-
-.placaTorreRelogio h3{
+.placaTorreRelogio h3{ 
     position: absolute;
-    margin-top: 5%;
-    margin-left: 45px;
-    font-size: 55px;
-    color: white;
-    text-shadow: 5px 5px 5px black;
+    font-size: 330%;
+    left: 11%;
 }
 .placaTorreRelogio{ /*primeira de cima*/
     position: absolute;
@@ -53,15 +57,6 @@ style={{position: 'absolute', width: 200+'px', height: 'auto', left: '200px', to
 
 
 
-
-.placaLaboratorio h3{
-    position: absolute;
-    margin-top: 5%;
-    margin-left: 45px;
-    font-size: 55px;
-    color: white;
-    text-shadow: 5px 5px 5px black;
-}
 .placaLaboratorio{/*placa do meio*/
     position: absolute;
     width: 479px;
@@ -75,14 +70,6 @@ style={{position: 'absolute', width: 200+'px', height: 'auto', left: '200px', to
 
 
 
-.placaMoinho h3{
-    position: absolute;
-    margin-top: 5%;
-    margin-left: 50%;
-    font-size: 55px;
-    color: white;
-    text-shadow: 5px 5px 8px black;
-}
 .placaMoinho{
     position: absolute;
     width: 478px;
@@ -142,15 +129,13 @@ style={{position: 'absolute', width: 200+'px', height: 'auto', left: '200px', to
     z-index: 100;
 }
 
-#plaquinhaRank #ranking{/* TEXTO "RANKING" */
-    font-size: 55px;
-    font-family: "nova oral";
-    position: absolute;
-    margin-left: 15%;
-    margin-top: 0%;
-    color: white;
+#plaquinhaRank h3{/* TEXTO "RANKING" */
+    font-size: 270%;
     z-index: 101;
-    text-shadow: 5px 5px 5px black, -2px -2px 5px black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 

@@ -1,0 +1,67 @@
+.engrenagem{
+    position: absolute;
+    z-index: 1005;
+    height: 24%;
+    width: 13.5%;
+    background-repeat: no-repeat;
+}
+
+.encaixe{
+    position: absolute;
+    height: 9.0%;
+    width: 5%;
+    background-repeat: no-repeat;
+    z-index: 1000;
+}
+
+
+
+/*  ENCAIXES PARA COLOCAR AS ENGRENAGENS */
+#encaiCirculo{
+    background-image: url('../images/moinho/Engrenagens/eixoCirculo.svg');
+}
+#encaiQuadrado{
+    background-image: url('../images/moinho/Engrenagens/eixoQuadrado.svg');
+    transform: rotate(-45deg);
+}
+#encaiTriangulo{
+    background-image: url('../images/moinho/Engrenagens/eixoTriangulo.svg');
+}
+#encaiCirculo2{
+    background-image: url('../images/moinho/Engrenagens/eixoCirculo.svg');
+}
+#encaiQuadrado2{
+    background-image: url('../images/moinho/Engrenagens/eixoQuadrado.svg');
+    transform: rotate(-45deg);
+}
+#encaiTriangulo2{
+    background-image: url('../images/moinho/Engrenagens/eixoTriangulo.svg');
+}
+
+
+
+
+
+/*  ENGRENAGENS DA ESQUERDA */
+#engLeftCircle{
+    background-image: url('../images/moinho/Engrenagens/engCirculo.svg');
+}
+#engLeftTriangle{
+    background-image: url('../images/moinho/Engrenagens/engTriang.svg');
+}
+#engLeftTriangle2{
+    background-image: url('../images/moinho/Engrenagens/engTriang.svg');
+}
+
+
+/*  ENGRENAGENS DA DIREITA  */
+#engRightCircle{
+    background-image: url('../images/moinho/Engrenagens/engCirculo.svg');
+   /* background-size: contain; */
+}
+#engRightDiamond{
+    background-image: url('../images/moinho/Engrenagens/engQuad.svg');
+}
+#engRightDiamond2{
+    background-image: url('../images/moinho/Engrenagens/engQuad.svg');
+}

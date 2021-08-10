@@ -8,8 +8,8 @@ import '../styles/LoginStyle.css';
 //para esses dois ultimos comandos funcionarem é necessário instalar o package "react-cssmodules"
 
 
-//resolução 1920x1080
-//resolução 1334x1200
+//resolução 1920x1080 - tela do angelo
+//resolução 1334x1200 - tela do guilherme
 
 
 export default function Login(props){
@@ -38,10 +38,8 @@ export default function Login(props){
                }),
 
                player: {
-                  ...estadoMain.player,
                   nome: nomeRecebido
                }
-                  
            }));
 
          //window.localStorage.setItem(document.getElementById("nomeText"), jogador);
@@ -50,7 +48,6 @@ export default function Login(props){
       }else{
            alert("Escreva seu nome!");
       }
-
   }
 
    const reajustarFundo = require("../funcoesGerais.js");
@@ -66,7 +63,7 @@ export default function Login(props){
                    </div> 
                 */}
 
-                 <input id="nomeText" type="text" placeholder="Player name" />
+                 <input id="nomeText" type="text" placeholder="Digite seu nome aqui" />
 
                  <button value="ENTRAR!" id="botaoEntrar" onClick={() => entrar()}>ENTRAR</button>
             </div>

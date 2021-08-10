@@ -27,6 +27,8 @@ export default class Main extends React.Component {
  constructor(){
      super();
 
+        this.pararContador=false;
+
         this.tempoGeral = {
               tempoTorreIgreja: null,
               tempoMoinho: null,
@@ -39,8 +41,8 @@ export default class Main extends React.Component {
               {nome: "TorreIgreja", exibida: false},
               {nome: "Laboratorio", exibida: false},
               {nome: "Castelo", exibida: false},
-              {nome: 'Moinho', exibida: false},
-              {nome: "Login", exibida: true}
+              {nome: 'Moinho', exibida: true},
+              {nome: "Login", exibida: false}
             ],
 
             player: {
@@ -156,6 +158,8 @@ export default class Main extends React.Component {
           return tela.exibida===true;
       }
       
+      this.pararContador=false;
+
       {/*
       if(this.state.player.tempoTorreIgreja != null){
         alert("Tempo total no moinho: "+this.state.player.tempoTorreIgreja[0]+"min /"+this.state.player.tempoTorreIgreja[1]+"secs");
@@ -164,7 +168,7 @@ export default class Main extends React.Component {
       let 
         componenteDaTela, 
                botoes = [], 
-                   BotaoTelaSelecao = <img onClick={ ()=> this.verTelaSelecao() } id="botaoTelaSelecao" alt="Voltar à tele de seleção de jogos" />;
+                   BotaoTelaSelecao = <div onClick={ ()=> this.verTelaSelecao() } id="botaoTelaSelecao">  </div>;
 
 
       switch(telaAtualObj[0].nome){
@@ -175,28 +179,26 @@ export default class Main extends React.Component {
            break;
 
         case 'SelecaoGames':
-           componenteDaTela = <SelecaoGames mainState={this}/> ;//botão da direita
+           componenteDaTela = <SelecaoGames mainState={this}/> ;
            botoes[0] = componenteDaTela;
            break;
 
         case 'Castelo':
-           componenteDaTela = <Castelo ctxMain={this}/> ;//botão de cima
+           componenteDaTela = <Castelo ctxMain={this}/> ;
            botoes[0] = componenteDaTela;
            botoes[1] = BotaoTelaSelecao;
            break;
 
         case "TorreIgreja":
-           componenteDaTela = <TorreIgreja />;
+           componenteDaTela = <TorreIgreja contextoMain={this}/>;
            botoes[0] = componenteDaTela;//inserindo o botão que leva à tela de seleção de jogos no jogo da torre da igreja 
            //botoes[1] = moldura;
            botoes[1] = BotaoTelaSelecao;
            botoes[2] = <Contador ctxMain={[this, "TorreIgreja"]} jogo={"TorreIgreja"}/>;;
-
-           //botao = botoes.map(btn => btn);
            break;
 
         case "Moinho":
-           componenteDaTela = <Moinho ctxMain={[this, "Moinho"]} />;
+           componenteDaTela = <Moinho ctxMain={this} />;
            botoes[0] = componenteDaTela;
            botoes[1] = BotaoTelaSelecao;
            botoes[2] = <Contador ctxMain={[this, "Moinho"]}/>;;

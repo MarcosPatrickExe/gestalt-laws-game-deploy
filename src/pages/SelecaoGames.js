@@ -101,15 +101,14 @@ export default function SelecaoGames(props){
             </div> 
 
 
-            <div id="" className="poste"> </div>            
-
+            <div id="poste" className="poste"> </div>            
 
 
             <div id="botaoRank" onClick={()=>verRank()}>
                 <div className="coroaIMG"> </div>
             </div>
             <div id="plaquinhaRank" onClick={()=>verRank()}>
-                <p id="ranking">Ranking</p>
+                <h3>Ranking</h3>
             </div>
            
 

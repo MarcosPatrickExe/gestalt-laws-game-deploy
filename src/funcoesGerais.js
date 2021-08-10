@@ -37,7 +37,7 @@ function reajustarTela(){
         //alignContent: "center",
         width: largura,
         height: altura,
-        zIndex: -100
+        zIndex: -10
      }
 };
 

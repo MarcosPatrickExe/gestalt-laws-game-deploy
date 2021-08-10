@@ -13,6 +13,7 @@ body{
     background-color: rgb(88, 30, 13);    
     cursor: url("../images/cursor/curse.png"), auto;
     overflow: hidden;
+/* z-index: -20;  */
 }
 
 /*
