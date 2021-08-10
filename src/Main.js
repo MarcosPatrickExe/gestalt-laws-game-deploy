@@ -41,8 +41,8 @@ export default class Main extends React.Component {
               {nome: "TorreIgreja", exibida: false},
               {nome: "Laboratorio", exibida: false},
               {nome: "Castelo", exibida: false},
-              {nome: 'Moinho', exibida: true},
-              {nome: "Login", exibida: false}
+              {nome: 'Moinho', exibida: false},
+              {nome: "Login", exibida: true}
             ],
 
             player: {
