@@ -1,8 +1,9 @@
 .engrenagem{
     position: absolute;
     z-index: 1005;
-    height: 24%;
-    width: 13.5%;
+    height: 28%;
+    width: 16%;
+    /*background-color: chartreuse;*/
     background-repeat: no-repeat;
 }
 
@@ -13,33 +14,6 @@
     background-repeat: no-repeat;
     z-index: 1000;
 }
-
-
-
-/*  ENCAIXES PARA COLOCAR AS ENGRENAGENS */
-#encaiCirculo{
-    background-image: url('../images/moinho/Engrenagens/eixoCirculo.svg');
-}
-#encaiQuadrado{
-    background-image: url('../images/moinho/Engrenagens/eixoQuadrado.svg');
-    transform: rotate(-45deg);
-}
-#encaiTriangulo{
-    background-image: url('../images/moinho/Engrenagens/eixoTriangulo.svg');
-}
-#encaiCirculo2{
-    background-image: url('../images/moinho/Engrenagens/eixoCirculo.svg');
-}
-#encaiQuadrado2{
-    background-image: url('../images/moinho/Engrenagens/eixoQuadrado.svg');
-    transform: rotate(-45deg);
-}
-#encaiTriangulo2{
-    background-image: url('../images/moinho/Engrenagens/eixoTriangulo.svg');
-}
-
-
-
 
 
 /*  ENGRENAGENS DA ESQUERDA */
@@ -64,4 +38,93 @@
 }
 #engRightDiamond2{
     background-image: url('../images/moinho/Engrenagens/engQuad.svg');
+}
+
+
+
+
+
+/* CLASSES QUE SERÃO ADICIONADAS ÀS ENGRENAGENS QUE FOREM COLOCADAS EM ENCAIXES NÃO COMPATÍVEIS COM ELAS:   */
+
+.leftCircleOriginalPlace{/* ENCAIXE CIRCULAR INFERIOR   */
+    top: 18%;
+    left: 4%;
+
+    transition-property: top left;
+    transition-duration: 1s;
+}
+.leftTriangleOriginalPlace{/* QUADRADO/LOSANGO INFERIOR ESQUERDO  */
+    top: 45%;
+    left: 0.3%;
+
+    transition-property: top left;
+    transition-duration: 1s;
+}
+.leftTriangle2OriginalPlace{ /* TRIANGULO INFERIOR*/
+    top: 71.6%;
+    left: 4%;
+
+    transition-property: top left;
+    transition-duration: 1s;
+}
+
+
+.rightCircleOriginalPlace{/* ENCAIXE CIRCULAR SUPERIOR */
+    top: 18%;
+    left: 79%;
+
+    transition-property: top left;
+    transition-duration: 1s;
+}
+.rightDiamondOriginalPlace{/* QUADRADO/LOSANGO EM ALTURA MEDIANA MAIS À DIREITA */
+    top: 45%; 
+    left: 83.6%;
+
+    transition-property: top left;
+    transition-duration: 1s;
+}
+.rightDiamond2OriginalPlace{/* TRIANGULO SUPERIOR */
+    top: 71.6%;
+    left: 78%;
+
+    transition-property: top left;
+    transition-duration: 1s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  ENCAIXES PARA COLOCAR AS ENGRENAGENS */
+#encaiCirculo{
+    background-image: url('../images/moinho/Engrenagens/eixoCirculo.svg');
+}
+#encaiQuadrado{
+    background-image: url('../images/moinho/Engrenagens/eixoQuadrado.svg');
+    transform: rotate(-45deg);
+}
+#encaiTriangulo{
+    background-image: url('../images/moinho/Engrenagens/eixoTriangulo.svg');
+}
+#encaiCirculo2{
+    background-image: url('../images/moinho/Engrenagens/eixoCirculo.svg');
+}
+#encaiQuadrado2{
+    background-image: url('../images/moinho/Engrenagens/eixoQuadrado.svg');
+    transform: rotate(-45deg);
+}
+#encaiTriangulo2{
+    background-image: url('../images/moinho/Engrenagens/eixoTriangulo.svg');
 }

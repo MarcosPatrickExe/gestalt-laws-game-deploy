@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Oval&display=swap');
 
 @keyframes virarPlaca{
-    from{
+    /*from{
         top: -55%;
         transform: rotateX(180deg);
-    }
+    }*/
 
     to{
         top: 0%;
@@ -15,9 +15,9 @@
 .contadorBox{
     position: absolute;
     left: 1.7%;
-    top: -10%; 
-    width: 17%;
-    height: 22.5%;
+    top: -35%; 
+    width: 14%;
+    height: 19.5%;
     z-index: 100;
     padding: 0;
     margin: 0;
@@ -25,7 +25,7 @@
     animation-name: virarPlaca;
     animation-fill-mode: forwards;
     animation-delay: 0.7s; 
-    animation-duration: 1.5s;
+    animation-duration: 0.8s;
     /*animation-direction: reverse;*/
     animation-timing-function: ease-out;
 }
@@ -38,10 +38,10 @@
 
 #segundos{
     position: absolute;
-    font-size: 340%;
+    font-size: 300%;
     font-family: 'Nova Oval', cursive;
-    left: 9%;
-    top: 40%;
+    left: 9.8%;
+    top: 36.2%;
     width: 75%;
     height: 40%;
     padding: 0%;

@@ -5,7 +5,7 @@
     --corDosBotoes: rgb(85, 85, 85);
 }
 
-@keyframes virarPlaca{
+@keyframes virarPlacaSelecao{
     from{
         top: -100px;
         transform: rotateX(180deg);
@@ -30,7 +30,7 @@
     background-color: transparent;
     z-index: 120;
 
-    animation-name: virarPlaca;
+    animation-name: virarPlacaSelecao;
     animation-fill-mode: forwards;
     /*animation-delay: 3s; */
     animation-duration: 1s;

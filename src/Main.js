@@ -41,8 +41,8 @@ export default class Main extends React.Component {
               {nome: "TorreIgreja", exibida: false},
               {nome: "Laboratorio", exibida: false},
               {nome: "Castelo", exibida: false},
-              {nome: 'Moinho', exibida: false},
-              {nome: "Login", exibida: true}
+              {nome: 'Moinho', exibida: true},
+              {nome: "Login", exibida: false}
             ],
 
             player: {
@@ -92,7 +92,7 @@ export default class Main extends React.Component {
 
 
 
- verTelaSelecao =()=>{
+  verTelaSelecao =()=>{
     let {telas} = this.state;
 
     telas = telas.map( tela=>{
@@ -100,7 +100,7 @@ export default class Main extends React.Component {
           return {...tela, exibida: true}
       else
           return {...tela, exibida: false}
-  });
+   });
     /*
         for(let i=telas.length-1; i >=0; i--){
 
@@ -121,10 +121,10 @@ export default class Main extends React.Component {
         
         }*/
      this.setState({telas: telas});
- }
+  }
 
 
- verTorreIgreja = ()=>{
+  verTorreIgreja = ()=>{
     let {telas} = this.state;
 
     telas = telas.map( tela=>{
@@ -132,24 +132,24 @@ export default class Main extends React.Component {
           return {...tela, exibida: true}
       else
           return {...tela, exibida: false}
-  });
+    });
 
     this.setState({telas});
- }
+  }
 
 
- verMoinho = ()=>{
-  let {telas} = this.state;
+  verMoinho = ()=>{
+    let {telas} = this.state;
 
-  telas = telas.map( tela=>{
-    if (tela.nome=="Moinho")
-        return {...tela, exibida: true}
-    else
-        return {...tela, exibida: false}
-});
+    telas = telas.map( tela=>{
+      if (tela.nome=="Moinho")
+          return {...tela, exibida: true}
+      else
+          return {...tela, exibida: false}
+  });
 
   this.setState({telas});
-}
+ }
 
  render(){
       let telaAtualObj = this.state.telas.filter(Telas);
