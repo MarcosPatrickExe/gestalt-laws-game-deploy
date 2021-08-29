@@ -1,8 +1,9 @@
 import React from "react";
 //import ShowGrid from './ShowGrid.jsx';
 import Canvas from './Canvas.js';
-
+import BotaoAjuda from './pages/BotaoAjuda.js';
 import './styles/MainStyle.css';
+//import TempoContador from './SaveTimer.js';
 //import {ReactComponent as BotaoCoroa} from './images/telaSelecao/coroa.svg'; //esse funcionou
 
 
@@ -28,11 +29,16 @@ export default class Main extends React.Component {
      super();
 
         this.pararContador=false;
+        this.sairTelaSelecao =false;
 
         this.tempoGeral = {
-              tempoTorreIgreja: null,
-              tempoMoinho: null,
-              tempoLaboratorio: null
+              tempoTorreIgreja: [0, 0],
+              tempoMoinho: [0, 0],
+              tempoLaboratorio: [0, 0],
+              
+              tempoTorreIgrejaReal: false,//SE FOR 'TRUE' QUER DIZER QUE REALMENTE O JOGADOR CONCLUIU O JOGO. SE FOR FALSO SIGNIFICA QUE O JOGADOR ENTROU E SAIU DO JOGO SEM CONCLUÍ-LO 
+              tempoMoinhoReal: false,
+              tempoLaboratorioReal: false
         }
 
         this.state={//A variavel 'state' será responsável por gerenciar as telas que são exibidas!
@@ -41,8 +47,8 @@ export default class Main extends React.Component {
               {nome: "TorreIgreja", exibida: false},
               {nome: "Laboratorio", exibida: false},
               {nome: "Castelo", exibida: false},
-              {nome: 'Moinho', exibida: true},
-              {nome: "Login", exibida: false}
+              {nome: 'Moinho', exibida: false},
+              {nome: "Login", exibida: true}
             ],
 
             player: {
@@ -52,22 +58,32 @@ export default class Main extends React.Component {
             showGrid: false
       }
 
-      document.addEventListener("keydown", this.digitou);
- }
+      //document.addEventListener("keydown", this.digitou);
+  }
 
+/*
  digitou = ()=>{
-   this.setState({showGrid: (!this.state.showGrid) });
+     this.setState({showGrid: (!this.state.showGrid) });
  }
+*/
 
  verRanking =()=>{
-    let {telas} = this.state;
+    
+     this.setState({
+        telas: this.state.telas.map( (tela)=>{
+              
+          if(tela.nome === "Castelo")
+                return {...tela, exibida: true}
+          else
+                return {...tela, exibida: false}
+          })
+     /*     ,
+        player: {
+          ...this.state.player
+          } */
+      });
+  }
 
-    telas = telas.map( tela=>{
-        if (tela.nome=="Castelo")
-            return {...tela, exibida: true}
-        else
-            return {...tela, exibida: false}
-    });
 
     /*For que permitirá a navegação entre as telas posteriormente:
      for(let i=0; i< telas.length; i++){
@@ -86,73 +102,76 @@ export default class Main extends React.Component {
                 será fechada e a proxima aberta. */
        /*    }
      }*/
-
-    this.setState(telas);
- }
-
-
+ 
 
   verTelaSelecao =()=>{
     let {telas} = this.state;
 
-    telas = telas.map( tela=>{
-      if (tela.nome=="SelecaoGames")
-          return {...tela, exibida: true}
-      else
-          return {...tela, exibida: false}
-   });
-    /*
-        for(let i=telas.length-1; i >=0; i--){
-
-            if(telas[i].exibida===true){
-                telas[i].exibida = false; */
-                
-                /*if(i === 0) /*Se a primeira tela estiver 
-                aberta ela será fechada (receberá 'false') e a última 
-                será exibida (receberá 'true') */
-                /*   
-                telas[2].exibida = true;
-                else
-                    telas[--i].exibida = true;
-                    /*Coso a tela atual não for a última, ela
-                    será fechada e a proxima aberta. */
-         /*   }
-          
-        
-        }*/
+     telas = telas.map( tela=>{
+        if (tela.nome=="SelecaoGames")
+            return {...tela, exibida: true}
+        else
+            return {...tela, exibida: false}
+     });
+    
+     //this.sairTelaSelecao = true;//necessário para que ocorra o efeito 'fade out' nas telas que não serão renderizdas
      this.setState({telas: telas});
   }
 
 
+  verLaboratorio = ()=>{
+      this.setState({
+            telas: this.state.telas.map( (tela)=>{
+
+            if(tela.nome === "Laboratorio")
+                  return {...tela, exibida: true}
+            else
+                  return {...tela, exibida: false}
+            })
+           /* ,
+            player: {
+            ...this.state.player
+          } */
+      });
+  }  
+
   verTorreIgreja = ()=>{
-    let {telas} = this.state;
+      this.setState({
+          telas: this.state.telas.map( (tela)=>{
 
-    telas = telas.map( tela=>{
-      if (tela.nome=="TorreIgreja")
-          return {...tela, exibida: true}
-      else
-          return {...tela, exibida: false}
-    });
+              if(tela.nome === "TorreIgreja")
+                  return {...tela, exibida: true}
+              else
+                  return {...tela, exibida: false}
+          })
+        /*  ,
 
-    this.setState({telas});
-  }
+          player: {
+          ...this.state.player
+          }*/
+     });
+ }
 
 
   verMoinho = ()=>{
-    let {telas} = this.state;
+      this.setState({
+        telas: this.state.telas.map( (tela)=>{
 
-    telas = telas.map( tela=>{
-      if (tela.nome=="Moinho")
-          return {...tela, exibida: true}
-      else
-          return {...tela, exibida: false}
-  });
-
-  this.setState({telas});
- }
+        if(tela.nome === "Moinho")
+              return {...tela, exibida: true}
+        else
+              return {...tela, exibida: false}
+        })
+        /*
+        ,
+        player: {
+           ...this.state.player
+       } */
+      });
+   }
 
  render(){
-      let telaAtualObj = this.state.telas.filter(Telas);
+      let telaAtualObj = this.state.telas.find(Telas);
         //descobrindo qual pagina o 'return'(mais abaixo) vai renderizar
       function Telas(tela)  {
           return tela.exibida===true;
@@ -165,50 +184,46 @@ export default class Main extends React.Component {
         alert("Tempo total no moinho: "+this.state.player.tempoTorreIgreja[0]+"min /"+this.state.player.tempoTorreIgreja[1]+"secs");
       */}
 
-      let 
-        componenteDaTela, 
-               botoes = [], 
-                   BotaoTelaSelecao = <div onClick={ ()=> this.verTelaSelecao() } id="botaoTelaSelecao">  </div>;
+      let  
+        botoes = [], 
+             BotaoTelaSelecao = <div onClick={ ()=> this.verTelaSelecao() } id="botaoTelaSelecao">  </div>;
 
 
-      switch(telaAtualObj[0].nome){
+      switch(telaAtualObj.nome){
 
         case 'Login':
-           componenteDaTela = <Login ctxCanvas={this}/>;
-           botoes[0] = componenteDaTela; 
+           botoes[0] = <Login ctxCanvas={this}/>; 
            break;
 
         case 'SelecaoGames':
-           componenteDaTela = <SelecaoGames mainState={this}/> ;
-           botoes[0] = componenteDaTela;
+           botoes[0] = <SelecaoGames ctxMain={this} />;
            break;
 
         case 'Castelo':
-           componenteDaTela = <Castelo ctxMain={this}/> ;
-           botoes[0] = componenteDaTela;
+           botoes[0] =  <Castelo ctxMain={this}/>;
            botoes[1] = BotaoTelaSelecao;
            break;
 
         case "TorreIgreja":
-           componenteDaTela = <TorreIgreja contextoMain={this}/>;
-           botoes[0] = componenteDaTela;//inserindo o botão que leva à tela de seleção de jogos no jogo da torre da igreja 
+           botoes[0] = <TorreIgreja contextoMain={this}/>;;//inserindo o botão que leva à tela de seleção de jogos no jogo da torre da igreja 
            //botoes[1] = moldura;
            botoes[1] = BotaoTelaSelecao;
-           botoes[2] = <Contador ctxMain={[this, "TorreIgreja"]} jogo={"TorreIgreja"}/>;;
+           botoes[2] = <Contador ctxMain={[this, "TorreIgreja"]}/>;
+           botoes[3] = <BotaoAjuda telaAtual="torreIgreja" />;
            break;
 
         case "Moinho":
-           componenteDaTela = <Moinho ctxMain={this} />;
-           botoes[0] = componenteDaTela;
+           botoes[0] = <Moinho contextoMain={this} />;
            botoes[1] = BotaoTelaSelecao;
-           botoes[2] = <Contador ctxMain={[this, "Moinho"]}/>;;
+           botoes[2] = <Contador ctxMain={[this, "Moinho"]}/>;
+           botoes[3] = <BotaoAjuda telaAtual="moinho"/>;
            break;
 
         case "Laboratorio":
-           componenteDaTela = <Laboratorio ctxMain={[this, "Laboratorio"]} />;
-           botoes[0] = componenteDaTela;
+           botoes[0] = <Laboratorio ctxMain={this} />;
            botoes[1] = BotaoTelaSelecao;
            botoes[2] = <Contador ctxMain={[this, "Laboratorio"]} />;
+           botoes[3] = <BotaoAjuda telaAtual="laboratorio"/>;
            break;
 
         default: 
@@ -218,23 +233,15 @@ export default class Main extends React.Component {
 
         return( 
            <div>
-              {/* <h1 className="TituloDoCentro"> Tela de {telaAtualObj[0].nome}</h1> */}
+            {/*}  <TempoContador.Provider value= {{...this.tempoGeral}}>   */}
 
+              {/* <h1 className="TituloDoCentro"> Tela de {telaAtualObj[0].nome}</h1> */}
+               
                <Canvas grid={this.state.showGrid}>
                       {botoes}
                </Canvas>
-               
-               {/*
-               
-               moldura
 
-               <Canvas grid={ {value: false}}>
-                      {componenteDaTela}
-               </Canvas>
-               
-               */}
-
-
+               {/* </TempoContador.Provider>   */}
            </div> 
         );
    };
@@ -332,7 +339,7 @@ export default class Main extends React.Component {
   */
   
 /*
-  const totalLanches = rocket.reduce( (valorAnte, valorPoste)=> valorAnte + valorPoste.lanches, 0);
+  const totalLanches = rocket.reduce( (valorAnte, valorPoste)=> valorAnte + valorPoste.launches, 0);
 */
 
 //OUTRO EXEMPLO:

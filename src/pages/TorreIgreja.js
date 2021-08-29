@@ -1,23 +1,27 @@
 import React from 'react';
 import '../styles/TorreIgrejaStyle.css';
+import TransitionEffects from '../transitionEffects.js';
+import Personagem from './Personagem';
+import '../DadosJogador.js';
 
 //PARTES DO MEDALHAO QUE SERÃO UNIDAS:
-import Taca from '../images/amuleto_partes_v2/taca.png';
-import CimaEsq from '../images/amuleto_partes_v2/cimaEsq.png';
-import CimaDir from '../images/amuleto_partes_v2/cimaDir.png';
-import BaixoEsq from '../images/amuleto_partes_v2/baixoEsq.png';
-import BaixoDir from '../images/amuleto_partes_v2/baixoDir.png';
-import CirculoCentro from '../images/amuleto_partes_v2/circuloCentro.png';
+import Taca from '../images/imagens_jogo_torre/taca.png';
+import CimaEsq from '../images/imagens_jogo_torre/cimaEsq.png';
+import CimaDir from '../images/imagens_jogo_torre/cimaDir.png';
+import BaixoEsq from '../images/imagens_jogo_torre/baixoEsq.png';
+import BaixoDir from '../images/imagens_jogo_torre/baixoDir.png';
+import CirculoCentro from '../images/imagens_jogo_torre/circuloCentro.png';
 //import MedalhaoDourado '../amuleto_partes_v2/medalhaoAmarelo.png';
 
 //DEMAIS OBJETOS/OBSTÁCULOS DO CENÁRIO (em png):
-import TorreCenario from '../images/torreRelogio/torreCenarioPNG.jpg';
-import MachadoGrande from '../images/torreRelogio/Machado_grande.png';
-import Caneta from '../images/torreRelogio/Caneta.png';
-import Papel from '../images/torreRelogio/Papel.png';
-import Pergaminho from '../images/torreRelogio/Pergaminho.png';
-//import CentroMedalhao from '../images/amuleto_partes_v2/medalhao.png';
-//import {ReactComponent as CentroMedalhao} from '../images/amuleto_partes_v2/medalhaoContornado1SVG.svg';
+import TorreCenario from '../images/imagens_jogo_torre/cenario_torre_relogio.jpg';
+import MachadoGrande from '../images/imagens_jogo_torre/Machado_grande.png';
+import Pergaminho from '../images/imagens_jogo_torre/Pergaminho.png';
+import Caneta from '../images/imagens_jogo_torre/Caneta.png';
+import Papel from '../images/imagens_jogo_torre/Papel.png';
+
+//import CentroMedalhao from '"../images/amuleto_partes_v2/Amuleto_cinza_versao_atualizada.svg"';
+//import Medalhao from '../images/amuleto_partes_v2/medalhao.png';
 
 //DEMAIS OBJETOS/OBSTÁCULOS DO CENÁRIO (em svg):
 //import {ReactComponent as EscudoMesa} from '../images/torreRelogio/escudo - mesa.svg';
@@ -27,7 +31,7 @@ import Pergaminho from '../images/torreRelogio/Pergaminho.png';
 //import {ReactComponent as Jarra} from '../images/torreRelogio/Jarra.svg';
 //import {ReactComponent as Machado} from '../images/torreRelogio/machado.svg';
 //import {ReactComponent as Tampa} from '../images/torreRelogio/tampa.svg';
-import {ReactComponent as Armadura} from '../images/torreRelogio/armadura.svg';
+//import {ReactComponent as Armadura} from '../images/torreRelogio/armadura.svg'; //esse SVG funcionou
 
 
 class TorreIgreja extends React.Component{
@@ -36,17 +40,19 @@ class TorreIgreja extends React.Component{
        super(props); 
     
        this.ctxMain = props.contextoMain;//atribuindo o contexto (this) da classe "Main" à propriedade "this.ctxMain"
+       this.ctxMain.pararContador=true;
 
        this.state = {
             inicializar: true,
             distanciasXY: {X: 0, Y: 0},
+            estadoPersonagem: "apresentando",
 
             pedacosMedalhao: {
-                circuloCentro: { left:   30+"%",   top: 84+"%"},
+                circuloCentro: { left:   30.5+"%", top: 83+"%"},
                 baixoDir:      { left:   81+"%",   top: 82+"%"},
                 baixoEsq:      { left:    8+"%",   top: 80+"%"},
                 cimaDir:       { left:   29+"%",   top: 45+"%"},
-                cimaEsq:       { left:   46+"%", top: 18.5+"%"},
+                cimaEsq:       { left:   46+"%",   top: 18.5+"%"},
                 taca:          { left:   18+"%",   top: 55+"%"}
             },
 
@@ -54,7 +60,7 @@ class TorreIgreja extends React.Component{
                 barril:        { left:    5+"%",  top: 63+"%"},
                 caneca:        { left:   61+"%",  top: 41+"%"},
                 escudoMesa:    { left:   25+"%",  top: 70+"%"},
-                escudoParede:  { left:  2.5+"%",  top: 31+"%"},
+                escudoParede:  { left:  2.1+"%",  top: 20+"%"},
                 machado:       { left:   60+"%",  top: 85+"%"},
                 tampa:         { left:   76+"%",  top: 53+"%"},
                 jarra:         { left:   16+"%",  top: 40+"%"},
@@ -65,6 +71,16 @@ class TorreIgreja extends React.Component{
                 pergaminho:    { left:   30+"%",  top: 36+"%"}
             }
        }
+    }
+
+    calcPorcentagem=(coscLeft, coscTop)=>{//calcula a porcentagem a partir da posicao do elemento
+        coscLeft = coscLeft.toString().replace('px','');
+        coscTop = coscTop.toString().replace('px','');
+  
+        let left = parseFloat(coscLeft);
+        let top = parseFloat(coscTop);
+  
+        //alert("Left: "+(left/window.innerWidth).toFixed(6)+"// top: "+(top/window.innerHeight).toFixed(6));
     }
 
     dragstart = (evt)=>{
@@ -149,10 +165,10 @@ class TorreIgreja extends React.Component{
                 break;
                 case "jarra":
                     this.setState({ objetosCenario: { ...this.state.objetosCenario, jarra: {top: newPositionY, left: newPositionX}  }});
-                break;
+                break;/*
                 case "armadura":
                     this.setState({ objetosCenario: { ...this.state.objetosCenario, armadura: {top: newPositionY, left: newPositionX}  }});
-                break;
+                break; */
                 case "machadoGrande":
                     this.setState({ objetosCenario: { ...this.state.objetosCenario, machadoGrande: {top: newPositionY, left: newPositionX}  }});
                 break;
@@ -175,33 +191,16 @@ class TorreIgreja extends React.Component{
    }
 
 
-   componentDidMount(){ 
-
-      if(this.state.inicializar){
-            let objetosCenario = document.getElementsByTagName("div");
-
-            Object.values(objetosCenario).forEach( (objeto)=>{
-                
-                if(objeto.getAttribute("className") !== "centroMedalhao"){
-                        objeto.addEventListener("dragstart", this.dragstart);
-                        objeto.addEventListener("drag", this.drag);
-                        objeto.addEventListener("dragend", this.dragend);
-                        //obejeto.addEventListener("dragstart", dragstart);
-
-                        objeto.cair = true;
-                }
-            });
-
-            this.setState({inicializar: false});
-      }
-   }
 
    render(){
       const reajustarFundo = require("../funcoesGerais.js");
       //console.dir(JSON.stringify(this.state, null, 4));
-      
 
       let moreObjects = [
+            <TransitionEffects effectName="fadeIn" />
+            ,
+            <Personagem ctxMain={this.ctxMain}  telaAtual="torreIgreja"  estadoPersonagem={this.state.estadoPersonagem+""} />
+            ,
             <div id="barril" style={this.state.objetosCenario.barril} className="objetos" draggable="true"> 
                 {/* <Barril /> */}
             </div> 
@@ -229,10 +228,10 @@ class TorreIgreja extends React.Component{
             <div id="jarra" style={this.state.objetosCenario.jarra} className="objetos" draggable="true"> 
                 {/* <Jarra /> */}
             </div>
-            ,
+            ,  /*
             <div id="armadura" style={this.state.objetosCenario.armadura} className="objetos" draggable="false"> 
                  <Armadura />  
-            </div>
+            </div>  */
             ,
             <div id="machadoGrande" style={this.state.objetosCenario.machadoGrande} className="objetos" draggable="true"> 
                 <img draggable="false" src={MachadoGrande}  alt="machado grande"/> 
@@ -261,8 +260,10 @@ class TorreIgreja extends React.Component{
 
 
             //<centroMedalhao  /> <img draggable="false" src={CentroMedalhao} />
-            <div id="centroMedalhao" className="centroMedalhao" draggable="false"> </div>
-            ,
+            <div id="divMedalhao" class="divMedalhao" draggable="false">
+               <div id="centroMedalhao" className="centroMedalhao"></div> 
+            </div>
+            , 
             <div id="avisoParabens" class="avisoParabensDesativado"> 
                     <h2>Parabéns!!! <br /> 
                     Você completou <br /> 
@@ -323,6 +324,54 @@ class TorreIgreja extends React.Component{
         </div>);
    }
 
+   
+   componentDidMount(){ 
+        if(this.state.inicializar){
+            let objetosCenario = document.getElementsByTagName("div");
+
+            Object.values(objetosCenario).forEach( (objeto)=>{
+                
+                if(objeto.getAttribute("className") !== "centroMedalhao"){
+                        objeto.addEventListener("dragstart", this.dragstart);
+                        objeto.addEventListener("drag", this.drag);
+                        objeto.addEventListener("dragend", this.dragend);
+                        //obejeto.addEventListener("dragstart", dragstart);
+
+                        objeto.cair = true;
+                }
+
+                let oBj = objeto.getBoundingClientRect(); 
+
+                let largura = window.innerHeight * 1.778990450204638;
+                //console.dir(JSON.stringify(objeto.style, null, 4));
+                //console.log("largura: "+largura.toFixed(3)+"// width:  "+oBj.width);
+                
+             //   console.log("largura em px: "+oBj.width+"//altura em px: "+objeto.offsetHeight);
+              //  console.log("id: "+objeto.getAttribute('id')+" width: "+(oBj.width/largura)+"%; height: "+(objeto.offsetHeight/window.innerHeight+"%;"));
+            });
+
+            this.setState({inicializar: false});
+        }
+   }
+
+
+   componentWillUnmount(){
+
+       if(this.state.inicializar==false){
+            Object.values(document.getElementsByTagName("div")).forEach( (objeto)=>{
+                    
+                if(objeto.getAttribute("className") !== "centroMedalhao"){
+                        objeto.removeEventListener("dragstart", this.dragstart);
+                        objeto.removeEventListener("drag", this.drag);
+                        objeto.removeEventListener("dragend", this.dragend);
+                        //obejeto.addEventListener("dragstart", dragstart);
+
+                        objeto.cair = false;
+                }
+           });
+       }
+
+   }
 }
 
 
@@ -333,7 +382,8 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
     //verificando se o objeto pego pelo mouse é uma peça do medalhão, ou seja, se ela não é um "objeto" comum do cenário.
     if(objetoPeca.className != "objetos"){
 
-        let encaixeDoMedalhao = document.getElementById("centroMedalhao").getBoundingClientRect();
+        let encaixeDoMedalhao = document.getElementById("divMedalhao").getBoundingClientRect();
+    
         let pecaDoMedalhao = objetoPeca.getBoundingClientRect();//objeto com todas as coordenadas da div que tem o pedação do medalhão
 
         if( //verificando se houve colisão entre a parte do medalhão e o amuleto:
@@ -356,7 +406,7 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.add("circuloCentroEncaixe");
  
                     estadoCenario.setState({  
-                        pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao,  circuloCentro: { left: 47+"%",  top: 20.6+"%" }}
+                        pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao,  circuloCentro: { left: 47.200+"%",  top: 20.3730+"%" }}
                     });
                  break;
 
@@ -365,15 +415,16 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.add("tacaEncaixe");
  
                     estadoCenario.setState(
-                        { pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, taca: {left: 48.4+"%",  top:  20.7+"%" } }
+                        { pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, taca: {left: 48.5423+"%",  top:  20.5500+"%" } }
                     });
+                    //estadoCenario.calcPorcentagem(event.target.offsetLeft, event.target.offsetTop);
                  break;
 
                  case "cimaDir": 
                     objetoPeca.classList.remove("cimaDir");
                     objetoPeca.classList.add("cimaDirEncaixe");
  
-                    estadoCenario.setState({ pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, cimaDir: { left:  51.6+"%",top:  18.7+"%" } } //left: 641px; top: 130px;
+                    estadoCenario.setState({ pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, cimaDir: { left:  51.6+"%",top:  18.550+"%" } } //left: 641px; top: 130px;
                     });
                  break;
 
@@ -389,7 +440,7 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.remove("baixoDir");
                     objetoPeca.classList.add("baixoDirEncaixe");
  
-                    estadoCenario.setState({  pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, baixoDir: { left: 51.4+"%",  top: 25.9+"%" } }//left: 640px; top: 180px;
+                    estadoCenario.setState({  pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, baixoDir: { left: 51.500+"%",  top: 25.330+"%" } }//left: 640px; top: 180px;
                     });
                  break;
 
@@ -397,7 +448,7 @@ function verificarEncaixe(event, estadoCenario){//verdicar se a parte do amuleto
                     objetoPeca.classList.remove("baixoEsq");
                     objetoPeca.classList.add("baixoEsqEncaixe");
  
-                    estadoCenario.setState({  pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, baixoEsq: { left:  46+"%",  top: 26.1+"%" }}//left: 572px; top: 180px;
+                    estadoCenario.setState({  pedacosMedalhao: { ...estadoCenario.state.pedacosMedalhao, baixoEsq: { left:  46.100+"%",  top: 25.300+"%" }}//left: 572px; top: 180px;
                     });
                  break;
 
@@ -483,16 +534,41 @@ function verficarMedalhao(estadoAtual){
 
 
    if(objetos.length==0) {
-        let mensagemFinal = document.getElementById("avisoParabens");
-        let medalhao = document.getElementById("centroMedalhao");
+       // let mensagemFinal = document.getElementById("avisoParabens");
+        let medalhaoDIV = document.getElementById("divMedalhao");
+        let medalhaoIMG = document.getElementById("centroMedalhao");
 
-        medalhao.classList.remove("centroMedalhao");
-        medalhao.classList.add("centroMedalhaoCompleto");
+        medalhaoIMG.classList.add("centroMedalhaoCompleto");
+        medalhaoIMG.classList.remove("centroMedalhao");
 
-        mensagemFinal.classList.add("avisoParabensAtivado");
-        estadoAtual.ctxMain.pararContador = true;
+        medalhaoDIV.classList.add("divMedalhaoAnimacao");
+        medalhaoDIV.classList.remove("divMedalhao"); 
 
-        estadoAtual.setState({medalhaoCompleto: !(estadoAtual.state.medalhaoCompleto)});
+        Object  //CADA PEÇA QUE FOI ENCAIXADA NA PAREDE DESAPARECE QUE O MEDALHAO É COMPLETADO 
+          .values(document.getElementsByTagName("div"))
+             .filter( (pecaMedalha)=>(
+                 pecaMedalha.className=="circuloCentroEncaixe" ||
+                 pecaMedalha.className=="baixoDirEncaixe" ||
+                 pecaMedalha.className=="baixoEsqEncaixe" ||
+                 pecaMedalha.className=="cimaDirEncaixe" ||
+                 pecaMedalha.className=="cimaEsqEncaixe" ||
+                 pecaMedalha.className=="tacaEncaixe") 
+                  ).forEach( (pecaMedalhao)=>{
+                      pecaMedalhao.style.opacity= "0.0";
+                  } );
+
+        //mensagemFinal.classList.add("avisoParabensAtivado");
+        window.setTimeout( ()=>{
+           /* medalhaoDIV.classList.remove("divMedalhaoAnimacao"); */
+            medalhaoDIV.className="rotacionarr";
+            estadoAtual.ctxMain.tempoGeral.tempoTorreIgrejaReal = true;
+            global.DadosJogador.setTempoTorre(estadoAtual.ctxMain.tempoGeral.tempoTorreIgreja);
+            estadoAtual.setState({ estadoPersonagem: "parabenizando"});
+         }, 3000);
+
+        //estadoAtual.ctxMain.pararContador = true;
+
+        //estadoAtual.setState({medalhaoCompleto: !(estadoAtual.state.medalhaoCompleto)});
    }
 }
 

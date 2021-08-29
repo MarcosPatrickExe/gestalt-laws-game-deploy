@@ -1,30 +1,30 @@
-var playerGlobal;
+module.exports = global.DadosJogador = {
+    namePlayer: "",
+    tempoTorreIgreja: [0, 0],
+    tempoMoinho: [0, 0],
+    tempoLaboratorio: [0, 0],
 
-class Player{
-    constructor(){
-        this.name = "";
-        this.tempoTorreIgreja = 0;
-        this.tempoMoinho = 0;
-        this.tempoLaboratorio = 0;
-    }
-
-    getTotalTimeIgreja(){
+    getTempoTorre: function(){
         return this.tempoTorreIgreja;
-    }  
+    },
 
-    getTotalTimeMoinho(){
+    getTempoMoinho: function(){
         return this.tempoMoinho;
-    }  
+    },
 
-    getTotalTimeLaboratorio(){
+    getTempoLaboratorio: function(){
         return this.tempoLaboratorio;
-    }  
-}
+    },
 
-var salvarPlayer = (jogador)=>{
-    playerGlobal = jogador;
-   // alert(playerGlobal.name);
-}
+    setTempoTorre: function(tempo){
+        this.tempoTorreIgreja = tempo;
+    },
 
-const jogador = new Player();
-module.exports = { jogador, salvarPlayer, playerGlobal }
+    setTempoMoinho: function(tempo){
+       this.tempoMoinho = tempo;
+    },
+
+    setTempoLaboratorio: function(tempo){
+        this.tempoLaboratorio = tempo;
+    }
+}

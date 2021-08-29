@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import {ReactComponent as MolduraContador} from './images/contadorMoldura.svg';
-//import TorreIgreja from './pages/TorreIgreja';
+//import './DadosJogador.js';
 import './styles/ContadorStyle.css';
+//import TempoContador from './SaveTimer'; //TENTATIVA DE COLOCAR UM CONTEXT API QUE NÃO DEU CERTO
+
 
 class Contador extends Component{
+   
     _isUnmouted = false
 
     constructor(props){
@@ -45,7 +48,7 @@ class Contador extends Component{
                     }
 
 
-                    //atualizando o state do componente 'Main'
+                    //atualizando o state do componente 'Main' (DESATIVADO POIS O ARQUIVO "src/DadosJogador.js" FAZ A MESMA COISA)
                     let tempoTotal = [this.state.time[0], this.state.segundos];
 
                     switch(this.ctxMain[1]){
@@ -53,6 +56,7 @@ class Contador extends Component{
                              
                                this.ctxMain[0].tempoGeral.tempoTorreIgreja = tempoTotal;
                                //console.dir(JSON.stringify(this.ctxMain[0].tempoGeral, null, 4));
+                               //console.log("tempo o jogo da torre igreja: "+this.ctxMain[0].tempoGeral.tempoTorreIgreja[1]);
                             break;
 
 
@@ -70,10 +74,10 @@ class Contador extends Component{
                             default: console.log("não foi possível acessar o estado da classe geral 'Main'"); 
                      }
                  }
-
+                    
             
             }, 1000);
-        }, 2000);
+        }, 1000);
     }
 
 /*
@@ -113,3 +117,15 @@ class Contador extends Component{
 }
 
 export default Contador;
+
+
+/*
+
+  //PASSANDO OS VALORES ATUAIS DE TEMPO PARA SEREM LIDOS PELOS OS COMPONENTES DOS JOGOS 
+ <TempoContador.Provider value={ {minutes: this.state.time[0], seconds: this.state.time[1]} }>
+ {this.props.children}{ //aqui será renderizado a tela do jogo e o personagem //
+</TempoContador.Provider>
+
+
+*/
+

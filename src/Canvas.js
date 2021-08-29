@@ -89,17 +89,16 @@ class Canvas extends React.Component{
 
       return(
           <div>
-              <div style={reajustarFundo()}>
-              
+                <div style={reajustarFundo()}>
+
                     <canvas ref="canvas" width={largura} height={altura} />
-                  
                     {this.props.children}
+                    
                 </div>
           </div>
       );
     }
 }
-
  
 
 export default Canvas;

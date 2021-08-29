@@ -1,5 +1,9 @@
 import React from 'react';
-import TelaLogin from '../images/backgrounds/portaPrincipal.png';
+//import TelaLogin from '../images/backgrounds/portaPrincipal.png';
+import TelaLogin from '../images/imagens_login/porta_oficial_ultimate.png'; 
+
+
+//import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'; https://reactstrap.github.io/components/modals/
 import '../styles/LoginStyle.css';
 //import {ReactComponent as placa} from '..images/';
 
@@ -23,7 +27,6 @@ export default function Login(props){
       let nomeRecebido = document.getElementById("nomeText").value;
 
       if(nomeRecebido.length){
-
           // let {jogador, salvarPlayer} = require("../DadosJogador.js");
            //jogador.name = nomeRecebido;
 
@@ -54,21 +57,25 @@ export default function Login(props){
 
    return (
       <div>
-            <div id="boxNomeJogador">
-                 {/*
-                   <div className="fundoEscrevaNome">
+
+         <div className="ModalBackgroundLogin"> </div>
+         <div class="ModalBoxLogin">
+               {/*
+                  <div className="fundoEscrevaNome">
                      <label><span className="InsiraSeuNome">Insira o seu nome: </span></label>
                      
                      <input id="nomeText" type="text" placeholder="Player name" />
-                   </div> 
-                */}
+                  </div> 
+               */}
 
-                 <input id="nomeText" type="text" placeholder="Digite seu nome aqui" />
+               <input id="nomeText" type="text" placeholder="Digite seu nome aqui" />
 
-                 <button value="ENTRAR!" id="botaoEntrar" onClick={() => entrar()}>ENTRAR</button>
-            </div>
+               <button value="ENTRAR!" id="botaoEntrar" onClick={() => entrar()}>ENTRAR</button>
+         </div>
 
-            <img src={TelaLogin} style={reajustarFundo()} alt="Bem vindo :)"/>
+      <img src={TelaLogin} style={reajustarFundo()} alt="Bem vindo :)"/>
+         
+     
       </div>
    );
 }

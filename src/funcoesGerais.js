@@ -25,6 +25,14 @@ function reajustarTela(){
     let altura = window.innerHeight;
     let largura = altura * 1.778990450204638;
 
+    //alert("altura: "+altura+"/ larg: "+largura);
+    //let valorR = (window.innerWidth - largura) /window.innerWidth;
+   // console.log("Distancia da imagem-fundo à borda esquerda da tela: "+valorR/2);
+   // console.log("Valor da altura: "+altura+"// largura: "+largura);
+   // console.log("L circulo: "+"");
+
+    //altura: 697  / largura 1239.95 (em relacao a imagem de fundo)
+
     return {
         position: "absolute",
         left: 0,

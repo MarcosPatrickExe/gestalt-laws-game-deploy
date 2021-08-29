@@ -1,15 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Oval&display=swap');
 
-#boxNomeJogador{
+
+@keyframes escurecerLogin{
+    from{ background-color: rgb(0, 0, 0, 0.0); }
+    to{ background-color: rgb(0, 0, 0, 0.6); }
+}
+
+@keyframes aparecerLogin{
+    to{ transform: translate(0%, 160%); }
+}
+
+.ModalBackgroundLogin{
     position: absolute;
-    left: 50%;
-    top: 52%;
+    left: -10%;
+    top: 0%;
+    height: 100%;
+    width: 120%;
+    background-color: rgb(0,0,0, 1.0);
+    
+    animation-name: escurecerLogin;
+    animation-duration: 2.0s;
+    animation-delay: 2.0s;
+    animation-fill-mode: forwards;
+}
+
+.ModalBoxLogin{
+    position: absolute;
+    left: 25%;
+    top: -50%;
     height: 50%;
     width: 50%;
     transform: translate(-50%, -50%);
-    background-image: url('../images/porta/molduraNome.svg');
+    background-image: url('../images/imagens_login/molduraNome.svg');
     background-repeat: no-repeat;
-    z-index: 100;
+    
+    animation-fill-mode: forwards;
+    animation-name: aparecerLogin;
+    animation-duration: 2s;
+    animation-delay: 2.0s;
 }
 
 input{
@@ -43,6 +71,8 @@ input:hover{
     margin-left: 40%;
     font-family: 'Nova Oval', cursive;
 }
+
+
 
 
 
