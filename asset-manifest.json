@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/gestalt-laws-game-deploy/static/css/main.6b0498c5.chunk.css",
-    "main.js": "/gestalt-laws-game-deploy/static/js/main.e173b8df.chunk.js",
-    "main.js.map": "/gestalt-laws-game-deploy/static/js/main.e173b8df.chunk.js.map",
+    "main.css": "/gestalt-laws-game-deploy/static/css/main.c66a59e5.chunk.css",
+    "main.js": "/gestalt-laws-game-deploy/static/js/main.9dc01ae8.chunk.js",
+    "main.js.map": "/gestalt-laws-game-deploy/static/js/main.9dc01ae8.chunk.js.map",
     "runtime-main.js": "/gestalt-laws-game-deploy/static/js/runtime-main.4f68a70e.js",
     "runtime-main.js.map": "/gestalt-laws-game-deploy/static/js/runtime-main.4f68a70e.js.map",
     "static/js/2.71c24364.chunk.js": "/gestalt-laws-game-deploy/static/js/2.71c24364.chunk.js",
     "static/js/2.71c24364.chunk.js.map": "/gestalt-laws-game-deploy/static/js/2.71c24364.chunk.js.map",
     "index.html": "/gestalt-laws-game-deploy/index.html",
-    "static/css/main.6b0498c5.chunk.css.map": "/gestalt-laws-game-deploy/static/css/main.6b0498c5.chunk.css.map",
+    "static/css/main.c66a59e5.chunk.css.map": "/gestalt-laws-game-deploy/static/css/main.c66a59e5.chunk.css.map",
     "static/js/2.71c24364.chunk.js.LICENSE.txt": "/gestalt-laws-game-deploy/static/js/2.71c24364.chunk.js.LICENSE.txt",
     "static/media/LaboratorioStyle.css": "/gestalt-laws-game-deploy/static/media/sem_globo.a91ceb65.png",
     "static/media/TorreIgrejaStyle.css": "/gestalt-laws-game-deploy/static/media/tampa.bb561b89.svg",
@@ -34,7 +34,7 @@
   "entrypoints": [
     "static/js/runtime-main.4f68a70e.js",
     "static/js/2.71c24364.chunk.js",
-    "static/css/main.6b0498c5.chunk.css",
-    "static/js/main.e173b8df.chunk.js"
+    "static/css/main.c66a59e5.chunk.css",
+    "static/js/main.9dc01ae8.chunk.js"
   ]
 }
