@@ -140,17 +140,16 @@ class Personagem extends React.Component {
 
                 <div id="fundoPreto" className="escurecerFundo"></div>
         </>);
+
+
+        
     }
 
 
 
     prosseguir = (event)=>{
-        
         //switch(this.props.telaAtual){//para cada tela o personagem falará coisas diferentes
-
             //----------------------------------------------------------------------------------------------
-           // case "laboratorio":
-
           if(this.props.estadoPersonagem=="apresentando" && this.state.personagemEsta !="oculto"){
                     document.getElementById("magus").className= "personagemDesaparecer"; //.classList.add('desaparecer');
                     //document.getElementById("magus").classList.remove("personagemAparecer");
@@ -206,7 +205,6 @@ class Personagem extends React.Component {
           
            // default: //alert("tela atual não definida...."); 
         //break; }
-        
     }
 
 
@@ -226,20 +224,25 @@ class Personagem extends React.Component {
            // document.getElementById("fundoPreto").style.animationDirection = "normal"; //NÃO FUNCIONA
 
             //window.setTimeout( ()=>{
-                this.state={ personagemEsta: "parabenizando" }
+             window.setTimeout( ()=>{
+                 document.getElementById("magus").className="falando";
+             }, 1500);
+
+           //  this.state={ personagemEsta: "parabenizando" }
            //}, 1000); 
         }
 
     }
 
-    componentDidMount(){
-          document.addEventListener('click', this.prosseguir);
-          
-        window.setTimeout( ()=>{
-             document.getElementById("magus").className="falando";
-        },2500);
-    }
     
+    componentDidMount(){
+        window.setTimeout( ()=>{
+            document.getElementById("magus").className="falando";
+            document.addEventListener('click', this.prosseguir);//A PESSOA SÓ PODERÁ PULAR A FALA DO PERSONAGEM DEPOIS QUE ELE APARECER NA TELA
+        }, 1500);
+
+    }
+
     componentWillUnmount(){
           document.removeEventListener('click', this.prosseguir);
           document.getElementById("magus").classList.remove("falando");

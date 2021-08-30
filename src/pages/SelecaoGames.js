@@ -74,7 +74,7 @@ export default class SelecaoGames extends React.Component{
           verTorre: false,
           verLab: false,
           verMoi: false,
-          verPersonagem: false,
+          verPersonagem: false,//
           estadoPersonagem: "apresentando"
       }
    }
@@ -219,10 +219,17 @@ export default class SelecaoGames extends React.Component{
    }
 
 
-   componentDidMount(){
-      if(this.state.verPersonagem==false)
-             window.setTimeout( ()=>this.setState({ verPersonagem:true})  );
+   componentDidMount(){//DEPOIS QUE OCORRER A ANIMCAO DA PLACA APARENCENDO O PERSONAGEM SE TORNA VISÍVEL:
       
+      if(this.ctxMain.aparecerPersonagemUnicaVez===true){//SE FOR VERDADEIRO O PERSONAGEM É EXIBIDO NA TELA SOMENTE UMA 1 VEZ, MESMO QUE O USUÁRIO SAIA DESSA TELA E ENTRE NOVAMENTE
+          
+            if(this.state.verPersonagem===false){
+                  window.setTimeout( ()=>this.setState({ verPersonagem:true}), 300);
+            }
+
+            this.ctxMain.aparecerPersonagemUnicaVez=false;//A PARTIR DAQUI O PERSONAGEM NÃO APARECERÁ MAIS NA TELA DE SELEÇÃO
+      }
+
    }
 
    componentWillUnmount(){

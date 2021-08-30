@@ -131,13 +131,13 @@
     top: 26%;
     height: 75%;
     width: 40%;
-   background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-size: 100% 100%;
     background-image: url('../images/Mago_frames/frame02.png');
     animation-fill-mode: forwards;
     animation-name: aparecer;
-    animation-duration: 0.5s;
-    animation-delay: 2s;
+    animation-duration: 1.0s;
+    animation-delay: 1.5s;
    /* animation-iteration-count: infinite; */
    /* animation-direction: normal; */
     /*transition: all 1s; */
@@ -182,8 +182,8 @@
 
      animation-fill-mode: forwards;
      animation-name: aparecer;
-     animation-duration: 1s;
-     animation-delay: 2s;
+     animation-duration: 1.0s;
+     animation-delay: 1.5s;
     /* animation-direction: normal; */
 }
 

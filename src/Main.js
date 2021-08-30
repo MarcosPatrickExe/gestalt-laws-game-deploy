@@ -30,6 +30,7 @@ export default class Main extends React.Component {
 
         this.pararContador=false;
         this.sairTelaSelecao =false;
+        this.aparecerPersonagemUnicaVez = true;//ESSA VARIAVEL IRÁ FAZER COM QUE O PERSONAGEM SO APAREÇA 1 VEZ NA TELA DE SELEÇÃO
 
         this.tempoGeral = {
               tempoTorreIgreja: [0, 0],
