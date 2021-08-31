@@ -1,5 +1,5 @@
 import React from 'react';
-import BotaoImagem from "../images/botao_ajuda_sem_sombra_v2.png";
+import BotaoImagem from "../images/botoes/botao_ajuda.png";
 import '../styles/MainStyle.css';
 
 
@@ -9,7 +9,7 @@ export default function BotaoAjuda(props){
 
     let estiloBotao = {
         position: "absolute",
-        left: "82.590%",
+        left: "81.590%",
         top: "0.0%",
         height: "16.500%",
         width: "8.500%",
@@ -20,7 +20,7 @@ export default function BotaoAjuda(props){
         animationName: "virarPlacaSelecao",
         animationFillMode: "forwards",
         animationDuration: "1s",
-        zIndex: 50
+        zIndex: 50,
     }
 
     return <div style={estiloBotao} onClick={ ()=>ajudar(props) }  title="botão de ajuda"></div> ;

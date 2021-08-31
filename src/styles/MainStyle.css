@@ -18,15 +18,18 @@
     }
 }
 
-#botaoTelaSelecao{
+#BotaoVoltar{
     position: absolute;
-    left: 91.990%;
-    margin-top: 0.650%;
-    width: 7.500%;
-    height: 14.200%;
-    background-image: url('../images/botaoSelecaoNovo.svg');
+    left: 90.690%;
+    margin-top: 0.850%;
+    width: 8.700%;
+    height: 13.500%;
     background-repeat: no-repeat;
     z-index: 3020;
+    background-image: url('../images/botoes/botao_voltar.png');
+    background-position: center;
+    background-size: cover;
+
     animation-name: virarPlacaSelecao;
     animation-fill-mode: forwards;
     /*animation-delay: 3s; */

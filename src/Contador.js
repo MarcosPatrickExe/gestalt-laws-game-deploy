@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {ReactComponent as MolduraContador} from './images/contadorMoldura.svg';
 //import './DadosJogador.js';
 import './styles/ContadorStyle.css';
 //import TempoContador from './SaveTimer'; //TENTATIVA DE COLOCAR UM CONTEXT API QUE NÃO DEU CERTO
@@ -103,13 +102,12 @@ class Contador extends Component{
         return(
           <div>
                 <div className="contadorBox">
-                     <MolduraContador id="imgMoldura" />
-                    
-                     <h2 id="segundos">
-                          {(this.state.time[0]>=0 && this.state.time[0]<=9) &&(0)}{this.state.time[0]}:
-                          {(this.state.segundos>=0 && this.state.segundos<=9) &&(0)}{this.state.segundos}
-                     </h2>
-
+                     <div id="imgMoldura"> 
+                            <h2 id="segundos">
+                                {(this.state.time[0]>=0 && this.state.time[0]<=9) &&(0)}{this.state.time[0]}:
+                                {(this.state.segundos>=0 && this.state.segundos<=9) &&(0)}{this.state.segundos}
+                            </h2>
+                     </div>
                 </div>
           </div>
         );

@@ -187,7 +187,7 @@ export default class Main extends React.Component {
 
       let  
         botoes = [], 
-             BotaoTelaSelecao = <div onClick={ ()=> this.verTelaSelecao() } id="botaoTelaSelecao">  </div>;
+             BotaoVoltar = <div onClick={ ()=> this.verTelaSelecao() } id="BotaoVoltar">  </div>;
 
 
       switch(telaAtualObj.nome){
@@ -202,27 +202,27 @@ export default class Main extends React.Component {
 
         case 'Castelo':
            botoes[0] =  <Castelo ctxMain={this}/>;
-           botoes[1] = BotaoTelaSelecao;
+           botoes[1] = BotaoVoltar;
            break;
 
         case "TorreIgreja":
            botoes[0] = <TorreIgreja contextoMain={this}/>;;//inserindo o botão que leva à tela de seleção de jogos no jogo da torre da igreja 
            //botoes[1] = moldura;
-           botoes[1] = BotaoTelaSelecao;
+           botoes[1] = BotaoVoltar;
            botoes[2] = <Contador ctxMain={[this, "TorreIgreja"]}/>;
            botoes[3] = <BotaoAjuda telaAtual="torreIgreja" />;
            break;
 
         case "Moinho":
            botoes[0] = <Moinho contextoMain={this} />;
-           botoes[1] = BotaoTelaSelecao;
+           botoes[1] = BotaoVoltar;
            botoes[2] = <Contador ctxMain={[this, "Moinho"]}/>;
            botoes[3] = <BotaoAjuda telaAtual="moinho"/>;
            break;
 
         case "Laboratorio":
            botoes[0] = <Laboratorio ctxMain={this} />;
-           botoes[1] = BotaoTelaSelecao;
+           botoes[1] = BotaoVoltar;
            botoes[2] = <Contador ctxMain={[this, "Laboratorio"]} />;
            botoes[3] = <BotaoAjuda telaAtual="laboratorio"/>;
            break;

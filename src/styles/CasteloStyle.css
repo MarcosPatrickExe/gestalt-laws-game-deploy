@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200&display=swap');
 
 
+@keyframes escurecerCastelo{
+    from{ opacity: 0.0; z-index: 0; }
+    to{ opacity: 0.5; z-index: 1000; }
+}
+
 
 @keyframes aparecerTabela{
     to{ transform: translate(0%, 135%); }
@@ -24,6 +29,28 @@
     animation-duration: 1s;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
+}
+
+
+
+
+
+
+#sombraEntrePlacaEFundo{
+        position: absolute;
+        opacity: 0.0;
+        z-index: 0;
+        left: -10%;
+        top: 0%;
+        height: 100%;
+        width: 120%;
+        background-color: rgba(0, 0, 0);
+    
+        animation-fill-mode: forwards;
+        animation-name: escurecerCastelo;
+        animation-direction: normal;
+        animation-duration: 1s;
+        animation-delay: 1s;
 }
 
 /*

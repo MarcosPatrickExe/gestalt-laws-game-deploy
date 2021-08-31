@@ -147,15 +147,18 @@ class Laboratorio extends React.Component{
                 </div>
                 <div className="sombraEntreGloboFundo"></div>
                 <img src={FundoLaboratorio} style={estiloLabFundo()} alt="Laboratorio" />
+
+
             </React.Fragment>);
     }
 
 
 
     girou = (event)=>{
+           this.retirarEventoDeClique();//COM ESSA FUNÇÃO O USUÁRIO NÃO PODERÁ FAZER OUTRA PEÇA GIRAR ENQUANTO A ATUAL NÃO TERMINAR O SEU GIRO COMPLETO
 
            this.pecaAtual = document.getElementById(event.target.id);//SALVANDO O ÚLTIMO ELEMENTO QUE FOI ROTACIONADO!
-           console.log("pela atual ID: "+this.pecaAtual.id);
+         //  console.log("pela atual ID: "+this.pecaAtual.id);
 
                 //---------------------------------------------------------------------------------------------
            if(this.state.faseAtual==="montarPassaro"){
@@ -173,7 +176,6 @@ class Laboratorio extends React.Component{
                                             return {...pecaSelecionada}
                                         }
                                 }) 
-
                     }));
 
 
@@ -198,16 +200,16 @@ class Laboratorio extends React.Component{
             }
                     
             //document.getElementById(event.target.id).style.transition = "transform 2s ease 0s";
-       window.setTimeout( ()=>{
-            this.atualizarDirecao();
-       }, 600);
+       window.setTimeout( ()=>{ 
+          this.atualizarDirecao();
+       }, 600);  //ATRASANDO A EXECUÇÃO DA FUNÇÃO "chamarDirecao()" PARA QUE A ATUALIZAÇÃO DOS GRAUS DA PEÇA CLICADA SEJA FEITA DE FORMA CORRETA
     }
 
     //-----------------------------------------------------------------------------------------------------------------------------
 
 
-   atualizarDirecao(){
-        /* 
+    atualizarDirecao(){
+   /* 
         PARA CHECAR SE A PEÇA ESTÁ DIRECIONADA PARA A DIREÇÃO CORRETA
         BASTA DIVIDIR O TOTAL DE ÂNGULOS QUE ELA PERCORREU POR 360.
         SE O QUOCIENTE FOR IGUAL À 
@@ -233,11 +235,14 @@ class Laboratorio extends React.Component{
 
                         if( direcaoPeca.nomePeca == this.pecaAtual.id){
                             let numeroVoltas = direcaoAtual(this.pecaAtual);
+                               console.log("numero voltas: "+numeroVoltas);
 
-                            if(numeroVoltas==".25" || numeroVoltas==".5" || numeroVoltas==".75"){
+                            if(numeroVoltas==".25" || numeroVoltas==".50" || numeroVoltas==".75"){
                                 return { ...direcaoPeca, direcaoCorreta: false }
-                            }else{
+
+                            }else if(numeroVoltas==".00"){
                                 document.getElementById('passaroCompleto').classList.add('piscarPassaro');
+                                console.log("direcao correta retornou true");
                                 return { ...direcaoPeca, direcaoCorreta: true }
                             }
                 
@@ -251,9 +256,9 @@ class Laboratorio extends React.Component{
                     if( direcaoPeca.nomePeca == this.pecaAtual.id){
                         let numeroVoltas = direcaoAtual(this.pecaAtual);
                         
-                        if(numeroVoltas==".25" || numeroVoltas==".5" || numeroVoltas==".75"){
+                        if(numeroVoltas==".25" || numeroVoltas==".50" || numeroVoltas==".75"){
                             return { ...direcaoPeca, direcaoCorreta: false }
-                        }else{
+                        }else if(numeroVoltas==".00"){
                             document.getElementById("peixeCompleto").classList.add('piscarPeixe');
                             return { ...direcaoPeca, direcaoCorreta: true }
                         }
@@ -306,12 +311,12 @@ class Laboratorio extends React.Component{
         if(this.state.faseAtual=="montarPassaro"){//DEPOIS QUE O PASSARO É MONTADO A PRIMEIRA FASE DO JOGO TERMIN, E O PEIXE APARECE PARA SER MONTADO
             let aux = this.direcaoPecasPassaro.filter( (direcaoPeca) => (direcaoPeca.direcaoCorreta===false) );
 
+            console.log("tamanho atual das pecas de passaro: "+aux.length);
             if(aux.length===0){
                 //AQUI UM ERRO: NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
                 window.setTimeout( ()=>{
                       this.setState({ faseAtual: "montarPeixe" });
                       this.aplicarEventoDeClique();//ESSA FUNÇÃO PERMITE QUE AS PEÇAS GIRATÓRIAS DO PEIXE SEJAM CLICÁVEIS
-                      
                 }, 800);
             }
 
@@ -319,6 +324,7 @@ class Laboratorio extends React.Component{
         }else if(this.state.faseAtual=="montarPeixe"){//DEPOIS QUE O PEIXE É MONTADO O JOGO TERMINA, CRONOMETRO PÁRA E O PERSONAGEM APARECE
             let aux = this.direcaoPecasPeixe.filter( (direcaoPeca) => (direcaoPeca.direcaoCorreta===false) );
             
+            console.log("tamanho atual das pecas de peixe: "+aux.length);
            // console.dir(JSON.stringify(aux, null, 4));
             if(aux.length===0){
                 //AQUI HAVIA UM ERRO. OLHAR DEPOIS: NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
@@ -328,15 +334,19 @@ class Laboratorio extends React.Component{
                
                 global.DadosJogador.setTempoLaboratorio(this.ctxMain.tempoGeral.tempoLaboratorio);
         
+                this.ctxMain.pararContador=true;
+
                 window.setTimeout( ()=>{
                     this.ctxMain.tempoGeral.tempoLaboratorioReal = true;
                     this.setState({ estadoPersonagem: "parabenizando"});
-                 }, 4000);
+                 }, 4000);//tempo de 4s para que der tempo de ocorrer a animação final e asim, somente depois aparecer o personagem
             }
         }
       
-
-    }
+        window.setTimeout( ()=>{
+             this.aplicarEventoDeClique();//DEPOIS QUE A PEÇA RECENTEMENTE CLICADA TERMINAR A SUA ROTAÇÃO O USUÁRIO PODERÁ CLICAR EM OUTRA PEÇA PARA ROTACIONÁ-LA
+        }, 200);
+     }
 
 //-----------------------------------------------------------------------------------------------------------------------------
 
@@ -356,6 +366,15 @@ class Laboratorio extends React.Component{
         });
 
         this.fadeOutOcorreu = true;
+    }
+
+
+    retirarEventoDeClique(){
+        Object.values(document.getElementsByClassName('pecas')).forEach( (pec) =>{
+
+            if(pec.className === "pecas")
+                pec.removeEventListener("click", this.girou);
+        });
     }
 
 
@@ -379,7 +398,7 @@ export default Laboratorio;
 /*------------------------- FUNÇOES AUXILIADORAS: ---------------------------*/
 function direcaoAtual(pecaClicada){//FUNCAO QUE RETORNA O NUMERO DE VOLTAS FEITOS PELA PEÇA QUE FOI CLICADA. ESSE NUMERO É FORMATADO E DELE RETORNADO SOMENTE OS NUMEROS DAS CASAS DECIMAIS
     let anguloPercorrido = getCurrentRotation(pecaClicada);//PEGANDO O VALOR DO ROTATE ATUAL DA PEÇA QUE FOI ROTACIONADA
-    let numeroVoltas = (anguloPercorrido/360).toString();
+    let numeroVoltas = (anguloPercorrido/360).toFixed(2).toString();
     numeroVoltas = numeroVoltas.slice(numeroVoltas.indexOf('.'));//selecionando somente o ponto e as casas decimais
  
     return numeroVoltas;

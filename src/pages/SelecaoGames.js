@@ -1,5 +1,5 @@
 import React from 'react';
-import fundoSelecao from '../images/imagens_tela_selecao/tela_selecao_atualizada/tela_selecao_sem_helice.png';
+import fundoSelecao from '../images/imagens_tela_selecao/tela_selecao_sem_helice.png';
 import '../styles/SelecaoStyle.css';
 import TransitionEffects from '../transitionEffects.js';
 import BarraProgresso from "./barraProgresso.js";

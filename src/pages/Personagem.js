@@ -75,7 +75,7 @@ class Personagem extends React.Component {
         
         let falasMoinho={
             apresentacao:  `Hmmm... parece que as engrenagens que faziam o moinho funcionar sairam de seus eixos. ${this.contextoMain.state.player.nome}!
-                             Ajude os fazendeiros do reino a concertar o moinho movendo as engrenagens de volta para seus respectivos eixos.`,
+                             Ajude os fazendeiros do reino a consertar o moinho movendo as engrenagens de volta para seus respectivos eixos.`,
                             
                              /*
                                 "Hmmmm... parece que as engrenagens que faziam o moinho funcionar sairam de seus eixos. Viajante! Ajude os fazendeiros do reino a consertar o moinho movendo as engrenagens de volta para seus respectivos eixos. ",

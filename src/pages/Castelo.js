@@ -17,13 +17,20 @@ export default function Castelo(props){
         let minTotal = global.DadosJogador.getTempoTorre()[0] + global.DadosJogador.getTempoMoinho()[0] + global.DadosJogador.getTempoLaboratorio()[0];//SOMANDO TODOS OS MINUTOS LEVADOS NOS 3 JOGOS
         let segTotal = global.DadosJogador.getTempoTorre()[1] + global.DadosJogador.getTempoMoinho()[1] + global.DadosJogador.getTempoLaboratorio()[1];//SOMANDO TODOS OS SEGUNDOS LEVADOS NOS 3 JOGOS
 
-        let minutosRestantes = segTotal/60;
-        let segundosRestantes = segTotal%60;
+        let minutosRestantes=0, segundosRestantes=0, val = segTotal/60;
+
+        if( (val) % 1 != 0 && !isNaN(val % 1)  ){//VERIFICANDO SE O TOTAL DE SEGUNDOS DIVIDIDO POR 60 É DECIMAL. SE FOR,  OS SEGUNDOS QUE "SOBRAM" NA DIVISÃO POR 60 FICARÃO GUARDADOS NA VARIAVEL DE "segTotal"
+            minutosRestantes = Math.floor(segTotal/60);
+            segundosRestantes = segTotal - (minutosRestantes*60);//PEGANDO O VALOR QUE SOBROU DOS DOS SEGUNDOS TOTAIS
+         }else{
+            minutosRestantes = val;
+            segundosRestantes = 0;
+         }
 
         minTotal += minutosRestantes;
-        segTotal += segundosRestantes;
+        segTotal = segundosRestantes;
 
-        return (""+Math.floor(minTotal)+"min : "+Math.floor(segTotal)+"s");
+        return (""+(minTotal)+"min : "+(segTotal)+"s");
     }
     
 
@@ -96,7 +103,7 @@ export default function Castelo(props){
             </div>
 
 
-  
+            <div id="sombraEntrePlacaEFundo"></div>
          <img src={CenarioCastelo}  style={estiloFundo()} alt="Ranking dos jogadores" /> 
      </div>
    );
