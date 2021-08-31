@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/gestalt-laws-game-deploy/static/css/main.c66a59e5.chunk.css",
-    "main.js": "/gestalt-laws-game-deploy/static/js/main.9dc01ae8.chunk.js",
-    "main.js.map": "/gestalt-laws-game-deploy/static/js/main.9dc01ae8.chunk.js.map",
+    "main.css": "/gestalt-laws-game-deploy/static/css/main.560df072.chunk.css",
+    "main.js": "/gestalt-laws-game-deploy/static/js/main.a9872e6d.chunk.js",
+    "main.js.map": "/gestalt-laws-game-deploy/static/js/main.a9872e6d.chunk.js.map",
     "runtime-main.js": "/gestalt-laws-game-deploy/static/js/runtime-main.4f68a70e.js",
     "runtime-main.js.map": "/gestalt-laws-game-deploy/static/js/runtime-main.4f68a70e.js.map",
     "static/js/2.71c24364.chunk.js": "/gestalt-laws-game-deploy/static/js/2.71c24364.chunk.js",
     "static/js/2.71c24364.chunk.js.map": "/gestalt-laws-game-deploy/static/js/2.71c24364.chunk.js.map",
     "index.html": "/gestalt-laws-game-deploy/index.html",
-    "static/css/main.c66a59e5.chunk.css.map": "/gestalt-laws-game-deploy/static/css/main.c66a59e5.chunk.css.map",
+    "static/css/main.560df072.chunk.css.map": "/gestalt-laws-game-deploy/static/css/main.560df072.chunk.css.map",
     "static/js/2.71c24364.chunk.js.LICENSE.txt": "/gestalt-laws-game-deploy/static/js/2.71c24364.chunk.js.LICENSE.txt",
     "static/media/LaboratorioStyle.css": "/gestalt-laws-game-deploy/static/media/sem_globo.a91ceb65.png",
     "static/media/TorreIgrejaStyle.css": "/gestalt-laws-game-deploy/static/media/tampa.bb561b89.svg",
@@ -16,10 +16,8 @@
     "static/media/Papel.png": "/gestalt-laws-game-deploy/static/media/Papel.f4666394.png",
     "static/media/Pergaminho.png": "/gestalt-laws-game-deploy/static/media/Pergaminho.6bfe536e.png",
     "static/media/barra_progresso_v3.1.c11e6519.png": "/gestalt-laws-game-deploy/static/media/barra_progresso_v3.1.c11e6519.png",
-    "static/media/MainStyle.css": "/gestalt-laws-game-deploy/static/media/botaoSelecaoNovo.9a5cd552.svg",
-    "static/media/botao_ajuda_sem_sombra_v2.05fe9e41.png": "/gestalt-laws-game-deploy/static/media/botao_ajuda_sem_sombra_v2.05fe9e41.png",
     "static/media/cenario_torre_relogio.jpg": "/gestalt-laws-game-deploy/static/media/cenario_torre_relogio.987885b0.jpg",
-    "static/media/contadorMoldura.cefbdb46.svg": "/gestalt-laws-game-deploy/static/media/contadorMoldura.cefbdb46.svg",
+    "static/media/ContadorStyle.css": "/gestalt-laws-game-deploy/static/media/contadorMoldura.cefbdb46.svg",
     "static/media/SelecaoStyle.css": "/gestalt-laws-game-deploy/static/media/poste.a1782f14.svg",
     "static/media/MoinhoStyle.css": "/gestalt-laws-game-deploy/static/media/engTriang.b9cfb656.svg",
     "static/media/PersonagemStyle.css": "/gestalt-laws-game-deploy/static/media/molduraFalaGuia.ba0d1f44.svg",
@@ -29,12 +27,12 @@
     "static/media/CasteloStyle.css": "/gestalt-laws-game-deploy/static/media/molduraDadosRanking.471c3d2d.png",
     "static/media/LoginStyle.css": "/gestalt-laws-game-deploy/static/media/molduraNome.f8fefb3c.svg",
     "static/media/porta_oficial_ultimate.da898d55.png": "/gestalt-laws-game-deploy/static/media/porta_oficial_ultimate.da898d55.png",
-    "static/media/tela_selecao_sem_helice.7236d687.png": "/gestalt-laws-game-deploy/static/media/tela_selecao_sem_helice.7236d687.png"
+    "static/media/tela_selecao_sem_helice.f1a6525f.png": "/gestalt-laws-game-deploy/static/media/tela_selecao_sem_helice.f1a6525f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4f68a70e.js",
     "static/js/2.71c24364.chunk.js",
-    "static/css/main.c66a59e5.chunk.css",
-    "static/js/main.9dc01ae8.chunk.js"
+    "static/css/main.560df072.chunk.css",
+    "static/js/main.a9872e6d.chunk.js"
   ]
 }
