@@ -95,9 +95,9 @@ class Laboratorio extends React.Component{
 
             <div id="barriga" className="pecas"></div>,
 
-            <div id="cauda" className="pecas"></div>,
+            <div id="cauda" className="pecas"></div>
 
-            <div id="passaroCompleto" className="passaroCompleto"></div>  
+          /*  <div id="passaroCompleto" className="passaroCompleto"></div>  */
         ]  
 
 
@@ -121,10 +121,9 @@ class Laboratorio extends React.Component{
 
             <div id="nadadeiraSuperiorTrazeira" className="pecas"></div>,
 
-            <div id="peixeCompleto" className="peixeCompleto"></div>  
+           /*  <div id="peixeCompleto" className="peixeCompleto"></div>   */
         ] 
        
-       // let pecas = (this.state.faseAtual==="montarPassaro") ?  pecasPassaro : pecasPeixe;
 
         return (
             <div>
@@ -148,7 +147,6 @@ class Laboratorio extends React.Component{
                 <div className="sombraEntreGloboFundo"></div>
                 <img src={FundoLaboratorio} style={estiloLabFundo()} alt="Laboratorio" />
 
-
             </div>);
     }
 
@@ -164,14 +162,14 @@ class Laboratorio extends React.Component{
            if(this.state.faseAtual==="montarPassaro"){
                     let pecaClicada = this.state.pecasPassaro.find( (pecaSelecionada) => pecaSelecionada.nomePeca==event.target.id);
 
-                    document.getElementById(event.target.id).style.transform = `rotate(${pecaClicada.grausPercorridos+90}deg)`;
+                    document.getElementById(event.target.id).style.transform = `rotate(${pecaClicada.grausPercorridos+90}deg)`;//acessando o DOM para que haja a rotação da peça
                     //todas as peças (quando clicadas) rotacianarão num ângulo de 90 graus em sentido horário
 
                     this.setState( (estado) => ({ 
                                 pecasPassaro: estado.pecasPassaro.map( (pecaSelecionada)=>{
 
                                         if(pecaSelecionada.nomePeca == event.target.id){
-                                            return { ...pecaSelecionada, grausPercorridos: (pecaSelecionada.grausPercorridos+90)}
+                                            return { ...pecaSelecionada, grausPercorridos: (pecaSelecionada.grausPercorridos+90)}//inserindo no vetor "pecasPassaro" a nova angulação que também foi atribuída ao seu elemento do DOM
                                         }else{
                                             return {...pecaSelecionada}
                                         }
@@ -221,13 +219,12 @@ class Laboratorio extends React.Component{
 
         */
 
-
       // alert("elemento com classe: "+document.getElementById("passaroCompleto").className);
       // if( document.getElementById("passaroCompleto").className==="piscar")
      //  document.getElementById("passaroCompleto").classList.remove('piscarPassaro');
       // document.getElementById("peixeCompleto").classList.remove('piscarPeixe');
         
-            //retirando a classe CSS 'piscar' da imagem do pássaro grande para que ela possa ser utilizada novamente
+       //retirando a classe CSS 'piscar' da imagem do pássaro grande para que ela possa ser utilizada novamente
 
 
         if(this.state.faseAtual=="montarPassaro"){
@@ -235,14 +232,12 @@ class Laboratorio extends React.Component{
 
                         if( direcaoPeca.nomePeca == this.pecaAtual.id){
                             let numeroVoltas = direcaoAtual(this.pecaAtual);
-                               console.log("numero voltas: "+numeroVoltas);
 
                             if(numeroVoltas==".25" || numeroVoltas==".50" || numeroVoltas==".75"){
                                 return { ...direcaoPeca, direcaoCorreta: false }
 
                             }else if(numeroVoltas==".00"){
-                                document.getElementById('passaroCompleto').classList.add('piscarPassaro');
-                                console.log("direcao correta retornou true");
+                               // document.getElementById('passaroCompleto').classList.add('piscarPassaro'); //RETIRANDO A CLASSE QUE FAZIA O PASSARO PISCAR CASO A PEÇA ESTIVESSE NA POSIÇÃO CORRETA
                                 return { ...direcaoPeca, direcaoCorreta: true }
                             }
                 
@@ -259,7 +254,7 @@ class Laboratorio extends React.Component{
                         if(numeroVoltas==".25" || numeroVoltas==".50" || numeroVoltas==".75"){
                             return { ...direcaoPeca, direcaoCorreta: false }
                         }else if(numeroVoltas==".00"){
-                            document.getElementById("peixeCompleto").classList.add('piscarPeixe');
+                           // document.getElementById("peixeCompleto").classList.add('piscarPeixe');  //RETIRANDO A CLASSE QUE FAZIA O PEIXE PISCAR CASO A PEÇA ESTIVESSE NA POSIÇÃO CORRETA
                             return { ...direcaoPeca, direcaoCorreta: true }
                         }
             
@@ -311,7 +306,7 @@ class Laboratorio extends React.Component{
         if(this.state.faseAtual=="montarPassaro"){//DEPOIS QUE O PASSARO É MONTADO A PRIMEIRA FASE DO JOGO TERMIN, E O PEIXE APARECE PARA SER MONTADO
             let aux = this.direcaoPecasPassaro.filter( (direcaoPeca) => (direcaoPeca.direcaoCorreta===false) );
 
-            console.log("tamanho atual das pecas de passaro: "+aux.length);
+           // console.log("tamanho atual das pecas de passaro: "+aux.length);
             if(aux.length===0){
                 //AQUI UM ERRO: NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
                 window.setTimeout( ()=>{
@@ -324,8 +319,6 @@ class Laboratorio extends React.Component{
         }else if(this.state.faseAtual=="montarPeixe"){//DEPOIS QUE O PEIXE É MONTADO O JOGO TERMINA, CRONOMETRO PÁRA E O PERSONAGEM APARECE
             let aux = this.direcaoPecasPeixe.filter( (direcaoPeca) => (direcaoPeca.direcaoCorreta===false) );
             
-            console.log("tamanho atual das pecas de peixe: "+aux.length);
-           // console.dir(JSON.stringify(aux, null, 4));
             if(aux.length===0){
                 //AQUI HAVIA UM ERRO. OLHAR DEPOIS: NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
     

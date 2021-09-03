@@ -16,15 +16,15 @@ module.exports = global.DadosJogador = {
     },
 
     getTempoTorre: function(){
-        return this.tempoTorreIgreja;
+        return this.tempoJogoTorreRelogio;
     },
 
     getTempoMoinho: function(){
-        return this.tempoMoinho;
+        return this.tempoJogoMoinho;
     },
 
     getTempoLaboratorio: function(){
-        return this.tempoLaboratorio;
+        return this.tempoJogoLaboratorio;
     },
 
     setNamePlayer: function(nomeJ){

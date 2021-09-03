@@ -1,6 +1,7 @@
 /* EFEITO PISCAR QUE OCORRE QUANDO AS PEÇAS SÃO GIRADAS PARA A DIREÇÃO CORRETA. 
 ELE OCORRE NO ESPAÇO CENTRAL VAZIO QUE ESTÁ RODEADO DAS PEÇAS GIRATÓRIAS, FAZENDO APARECER 
 RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
+/*
 @keyframes piscar{
     0%{ opacity: 0.25; }
     25%{ opacity: 0.5; }
@@ -8,6 +9,7 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
     75%{ opacity: 0.5; }
     100%{ opacity: 0.25; }
 }
+*/
 
 
 @keyframes trocarGlobo{
@@ -78,11 +80,7 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
     transition: transform 0.3s linear 0s;
 }
 
-/*  04.9113233287858396% */
-/* 0.024556616643929198 */
-/* 2.4556 */
-
-
+/*
 .peixeCompleto{ 
     position: absolute;
     left:  22.5078%; 
@@ -96,6 +94,9 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
     background-position: center;
     background-repeat: no-repeat;
 }
+*/
+
+/*
 .piscarPeixe{
     position: absolute;
     left:  22.5078%; 
@@ -113,7 +114,7 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
     animation-fill-mode: forwards;
     animation-delay: 0.3s;
 }
-
+*/
 
 
 /*------------------------------------PEÇAS PARA MONTAR O PEIXE----------------------------------*/
@@ -357,7 +358,7 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
 }
 
 
-
+/*
 .passaroCompleto{ 
     position: absolute;
     left:  35.5078%; 
@@ -370,9 +371,10 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-   /* background-color: blueviolet; */
 }
+*/
 
+/*
 .piscarPassaro{ 
     position: absolute;
     left:  35.5078%; 
@@ -390,5 +392,5 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-delay: 0.3s;
-   /* background-color: blueviolet; */
 }
+*/
