@@ -237,10 +237,10 @@ class Personagem extends React.Component {
     
     componentDidMount(){
         window.setTimeout( ()=>{
-            document.getElementById("magus").className="falando";
+            document.getElementById("magus").classList.add("falando");
+            document.getElementById("magus").classList.remove("personagemAparecer");
             document.addEventListener('click', this.prosseguir);//A PESSOA SÓ PODERÁ PULAR A FALA DO PERSONAGEM DEPOIS QUE ELE APARECER NA TELA
-        }, 1500);
-
+        }, 2500);
     }
 
     componentWillUnmount(){

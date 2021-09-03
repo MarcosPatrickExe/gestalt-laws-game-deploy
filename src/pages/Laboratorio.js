@@ -127,7 +127,7 @@ class Laboratorio extends React.Component{
        // let pecas = (this.state.faseAtual==="montarPassaro") ?  pecasPassaro : pecasPeixe;
 
         return (
-            <React.Fragment>
+            <div>
                 {/* Se o efeito fadeOut não ocorreu ele irá ocorrer somente uma vez quando o usuário entrar nessa página. Ele é desativado para que nao ocorra de novo na func didMoundt() */}
                 {this.fadeOutOcorreu===false &&(<TransitionEffects effectName="fadeIn"/>)}
                 {/* this.ctxMain.sairTelaSelecao===true && (<TransitionEffects effectName="fadeOut"/>) */  }
@@ -139,17 +139,17 @@ class Laboratorio extends React.Component{
                 { (this.state.faseAtual==="montarPeixe")  && (pecasPeixe) }
                 
 
+                <div id="passaro" className="parado"></div>
                 <div id="caixaGlobo" className="caixaGlobo">
-                      {/*  <div className="cavalo"> </div>
-                        <div className="passaro"></div>
-                        <div className="topeira"> </div>
-                        <div className="peixe"></div>  */}
+                 {/*    <div className="cavalo"> </div>
+                     <div className="peixe"></div>  
+                     <div className="topeira"> </div>  */}
                 </div>
                 <div className="sombraEntreGloboFundo"></div>
                 <img src={FundoLaboratorio} style={estiloLabFundo()} alt="Laboratorio" />
 
 
-            </React.Fragment>);
+            </div>);
     }
 
 
@@ -331,7 +331,8 @@ class Laboratorio extends React.Component{
     
                 //ADICINANDO CLASSE CSS AOS ELEMENTOS PARA A ANIMAÇÃO FINAL:
                 document.getElementById("caixaGlobo").classList.add("caixaGloboVariar");
-               
+                document.getElementById("passaro").className = "voando";
+
                 global.DadosJogador.setTempoLaboratorio(this.ctxMain.tempoGeral.tempoLaboratorio);
         
                 this.ctxMain.pararContador=true;

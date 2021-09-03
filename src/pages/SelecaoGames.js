@@ -23,8 +23,7 @@ function ajustarOpacidadeBotaoCastelo(){
       vector[0] =  this.props.ctxMain.tempoGeral.tempoTorreIgrejaReal ? true : false ;
       vector[1] =  this.props.ctxMain.tempoGeral.tempoLaboratorioReal ? true : false ;
       vector[2] =  this.props.ctxMain.tempoGeral.tempoMoinhoReal ? true : false ;
-      
-      console.log();
+
       let numeroJogosConcluidos = vector.filter( (jogoConcluido) => jogoConcluido===true );   
 
       if((numeroJogosConcluidos.length===0) || (numeroJogosConcluidos.length===1) || (numeroJogosConcluidos.length==2)){//SE TODOS OS JOGOS AINDA NÃO FORAM CONCLUÍDOS O BOTÃO DE RANKING FICARÁ TRANSPARENTE

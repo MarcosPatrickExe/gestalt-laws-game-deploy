@@ -8,16 +8,29 @@
 
 
 @keyframes aparecerTabela{
-    to{ transform: translate(0%, 135%); }
+    to{ transform: translate(0%, 265%); }
+}
+
+
+.tabela{
+    position: absolute;
+    left: 13.150%;
+    top: 27.450%;
+    text-align: center;
+    padding: 0%;
+    height: 63%;
+    width: 75%;
+    background-color: rgba(2, 2, 235, 0.2);
+    overflow: scroll;
 }
 
 /* MODAL QUE IRÁ APARECER PARA EXIBIR A TELA DE RANKING */
 .tabelaModalRanking{
     position: absolute;
-    height: 71%;
-    width: 30%;
-    left: 35%;
-    top: -80%;
+    height: 89%;
+    width: 50%;/* 70%*/
+    left: 25%;
+    top: -230%;
     z-index: 100;
 
     background-image: url('../images/imagens_ranking/molduraDadosRanking.png');
@@ -33,24 +46,26 @@
 
 
 
-
+.titulo{
+    text-transform: uppercase;
+}
 
 
 #sombraEntrePlacaEFundo{
-        position: absolute;
-        opacity: 0.0;
-        z-index: 0;
-        left: -10%;
-        top: 0%;
-        height: 100%;
-        width: 120%;
-        background-color: rgba(0, 0, 0);
-    
-        animation-fill-mode: forwards;
-        animation-name: escurecerCastelo;
-        animation-direction: normal;
-        animation-duration: 1s;
-        animation-delay: 1s;
+    position: absolute;
+    opacity: 0.0;
+    z-index: 0;
+    left: -10%;
+    top: 0%;
+    height: 100%;
+    width: 120%;
+    background-color: rgba(0, 0, 0);
+
+    animation-fill-mode: forwards;
+    animation-name: escurecerCastelo;
+    animation-direction: normal;
+    animation-duration: 1s;
+    animation-delay: 1s;
 }
 
 /*
@@ -135,14 +150,16 @@ td, th{ font-family: 'Spectral SC', serif; }
 table{
     /* border-collapse: collapse; */
     border-collapse: collapse; 
-    width: 70%;
+    width: 100%;
     z-index: 21;
     position: relative;
-    top: 29%;
-    left: 16%;
+    top: 0%;
+    left: 0%;
 }
 
 table, tr, th{
+    padding-left: 2.7%;
+    text-align: center;
     height: 50px;
     color: white;
    /* border: 1px solid rgb(32, 32, 32); */
@@ -151,12 +168,11 @@ table, tr, th{
 
 table, tr, td{
     text-align: center;
-    background-color: rgb(216, 214, 213);
+    
     height: 30px;
     vertical-align: center;
     border: 0px solid rgb(32, 32, 32); 
     font-weight: bold;
-    text-transform: UpperCase;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(75, 73, 73);
 }
