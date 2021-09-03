@@ -306,7 +306,7 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
     width: 20%;
     z-index: -5;
     opacity: 0.0;
-    background-image: '![](/images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_parado.png)';
+    background-image: url('../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_parado.png');
      /*background-size: cover;*/
     background-position: center;
     background-repeat: no-repeat;

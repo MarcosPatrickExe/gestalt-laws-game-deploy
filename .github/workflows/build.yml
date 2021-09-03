@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+docs/
+   ![]('images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_parado.png)'
+
 jobs:
   deploy:
     runs-on: ubuntu-18.04
