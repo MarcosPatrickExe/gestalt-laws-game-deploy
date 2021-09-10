@@ -23,7 +23,7 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
 
     80%{ background-image: url('../images/imagens_jogo_laboratorio/fase_globo_quebrado/globo_rachadura_04.png'); top: -1%; z-index: 50;}
 
-    100%{ background-image: url('../images/imagens_jogo_laboratorio/fase_globo_quebrado/sem_globo.png');  top: 5%; z-index: 1;}
+    100%{ background-image: url('../images/imagens_jogo_laboratorio/fase_globo_quebrado/sem_globo.png');  top: 5%; z-index: -8;}
 }
 
 
@@ -38,32 +38,35 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
     }
 }
 
-@keyframes voar{
+@keyframes voando{
     0%{ 
         position: absolute;
-        left:  50.10%; 
-        top:  5.0%; 
-        height: 27%; 
-        width: 20%;
-        z-index: 3000;
+        left:  45.10%; 
+        top:  12.0%;
     }
 
-    50%{
+    40%{
         position: absolute;
-        left:  70.10%; 
-        top:  23.0%; 
-        height: 27%; 
-        width: 20%; 
-        z-index: 3000;
+        left:  -50.10%; 
+        top:  12.0%;
+    }
+
+    60%{ 
+        position: absolute;
+        left:  45.10%; 
+        top:  12.0%;
+    }
+
+    80%{
+        position: absolute;
+        left:  120.10%; 
+        top:  12.0%; 
     }
 
     100%{
         position: absolute;
-        left:  20.10%; 
-        top:  23.0%; 
-        height: 27%; 
-        width: 20%; 
-        z-index: 3000;
+        left:  45.10%; 
+        top:  12.0%; 
     }
 }
 
@@ -278,36 +281,39 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
 
 .voando{
     position: absolute;
-    left:  43.10%; 
-    top:  5.0%; 
-    height: 35%; 
-    width: 23%;
-    z-index: 20;
+    left:  45.10%; 
+    top:  12.0%; 
+    height: 31%; 
+    width: 20%;
+    z-index: -5;/* -10 */
     background-image: url('../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_voando.png');
-    /*background-size: cover;*/
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 1.0;
-   
 
-    animation-name: baterAsas;
-    animation-duration: 0.1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-delay: 4s;
+    animation: baterAsas 0.1s linear 4.1s infinite normal forwards running, voando 6s linear 4.1s infinite normal forwards running;
+    /*
+        animation-name: none;
+        animation-duration: 0s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+        animation-play-state: running;
+    */
 
 }
 
 .parado{
     position: absolute;
-    left:  20.10%; 
-    top:  5.0%; 
+    left:  45.10%; 
+    top:  12.0%; 
     height: 31%; 
     width: 20%;
-    z-index: -5;
-    opacity: 0.0;/*
-    background-image: url('../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_parado.png');*/
-     /*background-size: cover;*/
+    z-index: -5;/* -10 */
+    background-image: url('../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_parado.png');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -334,7 +340,7 @@ RAPIDAMENTE A IMAGEM COMPLETA DE UM CAVALO OU DO PASSARO. */
     height: 101%; 
     width: 78.800%;
     z-index: 50;
-    /*background-image: url('../images/imagens_jogo_laboratorio/fase_globo_quebrado/globo_inteiro.png')*/;
+    background-image: url('../images/imagens_jogo_laboratorio/fase_globo_quebrado/globo_inteiro.png');
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;

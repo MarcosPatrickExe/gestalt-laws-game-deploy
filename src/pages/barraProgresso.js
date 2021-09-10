@@ -1,12 +1,12 @@
 import React from 'react';
-import barraImagem from '../images/barra_progresso_v3.1.png';
+import barraImagem from '../images/molduras_barra_progresso/barra_progresso_v3.1.png';
 
 export default function BarraProgresso(props){
 
     const estiloBarra = {
         position: "absolute",
         left: "81.050%",
-        top: "91.900%",
+        top: "91.900%", 
         height: "5.550%",
         width: "17%",
         padding: "0.2%",

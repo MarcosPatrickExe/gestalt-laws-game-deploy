@@ -2,6 +2,8 @@ import React from 'react';
 import FundoLaboratorio from '../images/imagens_jogo_laboratorio/laboratorio_sem_globo.png';
 import TransitionEffects from '../transitionEffects.js';
 import '../styles/LaboratorioStyle.css';
+import '../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_parado.png';
+import '../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_voando.png'
 import Personagem from './Personagem';
 
 class Laboratorio extends React.Component{
@@ -325,15 +327,15 @@ class Laboratorio extends React.Component{
                 //ADICINANDO CLASSE CSS AOS ELEMENTOS PARA A ANIMAÇÃO FINAL:
                 document.getElementById("caixaGlobo").classList.add("caixaGloboVariar");
                 document.getElementById("passaro").className = "voando";
+                
+                this.ctxMain.pararContador=true;
 
                 global.DadosJogador.setTempoLaboratorio(this.ctxMain.tempoGeral.tempoLaboratorio);
-        
-                this.ctxMain.pararContador=true;
 
                 window.setTimeout( ()=>{
                     this.ctxMain.tempoGeral.tempoLaboratorioReal = true;
                     this.setState({ estadoPersonagem: "parabenizando"});
-                 }, 4000);//tempo de 4s para que der tempo de ocorrer a animação final e asim, somente depois aparecer o personagem
+                 }, 6000);//tempo de 4s para que der tempo de ocorrer a animação final e asim, somente depois aparecer o personagem
             }
         }
       
