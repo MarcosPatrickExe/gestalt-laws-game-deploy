@@ -3,6 +3,7 @@ import MoinhoFundo from '../images/imagens_jogo_moinho/moinho_versao_definitiva.
 import '../styles/MoinhoStyle.css';
 import TransitionEffects from '../transitionEffects.js';
 import Personagem from './Personagem';
+import {Alert} from 'reactstrap';
 
 /* 
 import {ReactComponent as EngRightTop} from '../images/Engrenagens/engrenagem1.svg';

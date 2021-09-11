@@ -46,12 +46,12 @@ export default function Castelo (){
             cor = "yellow";//cor para destacar a posição  de onde a pessoa se encontra
          }
 
-         return ( <tr style={{backgroundColor: cor, color: "green"}}>
+         return ( <tr style={{backgroundColor: cor, color: "black"}}>
                      <td>{indice+1}</td>
                      <td>{jogador.nome}</td>
                      <td>{jogador.tempoTotal}</td>
              </tr>);
-     };
+      };
   
    
       return (

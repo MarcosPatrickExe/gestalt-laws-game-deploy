@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@200&display=swap');
+
+@keyframes escurecerFundo2{
+    from{ opacity: 0.0; z-index: 0; }
+    to{ opacity: 0.6; z-index: 1500; }
+}
+@keyframes clarearFundo2{
+    from{ opacity: 0.6; z-index: 20; }
+    to{ opacity: 0.0; z-index: 0; }
+}
+
+@keyframes aparecerCaixaAjuda{
+    to{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 70%;
+        width: 35%;
+        opacity: 1.0;
+        z-index: 2000;
+    }
+}
+
+@keyframes desaparecerCaixaAjuda{
+    from{
+        height: 70%;
+        width: 35%;
+        opacity: 1.0;
+        z-index: 2000;
+    }
+
+    to{
+        height: 1.0%;
+        width: 0.5%;
+        opacity: 0.0;
+        z-index: -50;
+    }
+}
+
+.aparecerCaixaAjuda{    
+    animation-fill-mode: forwards;
+    animation-name: aparecerCaixaAjuda;
+    animation-duration: 1.0s;
+}
+.desaparecerCaixaAjuda{
+    animation-fill-mode: forwards;
+    animation-name: desaparecerCaixaAjuda;
+    animation-duration: 0.5s;
+}
+
+#modalAjuda{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 1.0%;
+    width: 0.5%;
+    opacity: 0.0;
+    padding: 1.5%;
+    z-index: 0;
+    background-color: rgb(240,218,200);
+    border: 10px solid rgb(164,157,177);
+    border-radius: 10%;
+    transition: all 1s linear 0s;
+}
+
+@keyframes aparecerExplicacao{ to{ opacity: 1.0;} }
+
+@keyframes desaparecerExplicacao{ from{ opacity: 1.0;} to{ opacity: 0.0;}}
+
+
+#explicacao{
+    position: relative;
+    margin-top: 4.70%;
+    color: rgb(94, 64, 2);
+    font-size: 189%;
+    font-family: 'Spectral', serif;
+    opacity: 0.0;
+    line-height: 1.5;
+    
+    /* overflow-y: scroll; */
+}
+.aparecerExplicacao{
+    animation: aparecerExplicacao 0.3s linear 0.74s forwards;
+}
+.desaparecerExplicacao{
+    animation: desaparecerExplicacao 0.3s linear 0s forwards;
+}
+
+
+#sair{
+    position: absolute;
+    bottom: 5%;
+    left: 8.31%;
+    color: rgb(138, 92, 2);
+    font-size: 190%;
+    font-family: 'Nova Oval', cursive; 
+    opacity: 0;
+    animation-name: desaparecerExplicacao;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+#divFundo{
+    position: absolute;
+    opacity: 0.0;
+    z-index: 0;
+    left: -10%;
+    top: 0%;
+    height: 100%;
+    width: 120%;
+    background-color: rgb(0, 0, 0);
+}
+.escurecerFundo2{
+    animation-fill-mode: forwards;
+    animation-name: escurecerFundo2;
+    animation-direction: normal;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+.clarearFundo2{
+    animation-fill-mode: forwards;
+    animation-name: clarearFundo2;
+    animation-direction: normal;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}

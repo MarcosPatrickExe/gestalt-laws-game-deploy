@@ -210,21 +210,21 @@ export default class Main extends React.Component {
            //botoes[1] = moldura;
            botoes[1] = BotaoVoltar;
            botoes[2] = <Contador ctxMain={[this, "TorreIgreja"]}/>;
-           botoes[3] = <BotaoAjuda telaAtual="torreIgreja" />;
+           botoes[3] = <BotaoAjuda telaAtual="torreRelogio" ctxMain={this}/>;
            break;
 
         case "Moinho":
            botoes[0] = <Moinho contextoMain={this} />;
            botoes[1] = BotaoVoltar;
            botoes[2] = <Contador ctxMain={[this, "Moinho"]}/>;
-           botoes[3] = <BotaoAjuda telaAtual="moinho"/>;
+           botoes[3] = <BotaoAjuda telaAtual="moinho" ctxMain={this}/>;
            break;
 
         case "Laboratorio":
            botoes[0] = <Laboratorio ctxMain={this} />;
            botoes[1] = BotaoVoltar;
            botoes[2] = <Contador ctxMain={[this, "Laboratorio"]} />;
-           botoes[3] = <BotaoAjuda telaAtual="laboratorio"/>;
+           botoes[3] = <BotaoAjuda telaAtual="laboratorio" ctxMain={this}/>;
            break;
 
         default: 

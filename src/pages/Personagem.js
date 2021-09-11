@@ -34,8 +34,8 @@ class Personagem extends React.Component {
         }
 
         let falasLab = {
-            apresentacao:  `não! O mago de gelo prendeu vários animais dentro daquele globo de neve mágico. ${this.contextoMain.state.player.nome}! 
-                              rotacione as formas escuras para formar a silhueta de cada animal e assim libertá-los do encantamento.`,
+            apresentacao:  `não! O mago de gelo prendeu um animal dentro daquele globo de neve mágico. ${this.contextoMain.state.player.nome}! 
+                              rotacione as formas escuras para formar a silhueta de alguns animais e assim libertar do encantamento o animal que está preso no globo.`,
 
                             /*RETIRAR ESSE CÓDIGO CASO A MECANICA DE PASSAR AS FALAS SEJA REJEITADA
                              ,"Olá "+this.props.ctxMain.state.player.nome+" !!! Seja bem-vindo(a) ao jogo da torre do relógio!",
@@ -50,7 +50,7 @@ class Personagem extends React.Component {
                             ], */
 
             parabenizacao: `parabéns ${this.contextoMain.state.player.nome}! Você completou o desafio em ${global.DadosJogador.getTempoLaboratorio()[0]}min 
-                            e ${global.DadosJogador.getTempoLaboratorio()[1]}s e teve uma boa noção dos princípios da pregnância 
+                            e ${global.DadosJogador.getTempoLaboratorio()[1]}s e conheceu os princípios da pregnância 
                             da forma e do fechamento.`
         };
 
@@ -67,7 +67,7 @@ class Personagem extends React.Component {
 
 
             parabenizacao: `parabéns ${this.contextoMain.state.player.nome}! você completou o desafio em ${global.DadosJogador.getTempoTorre()[0]}min e
-                              ${global.DadosJogador.getTempoTorre()[1]}s e teve uma boa noção dos princípios da semelhança, segregação e unificação.`
+                              ${global.DadosJogador.getTempoTorre()[1]}s e conheceu os princípios da semelhança, segregação e unificação.`
                             
                              //   "Parabéns XXX !!! Você completou o jogo com êxito", "Você concluiu esse jogo em XXmin e YYs "
         };
@@ -86,7 +86,7 @@ class Personagem extends React.Component {
 
 
             parabenizacao:  `parabéns ${this.contextoMain.state.player.nome}! Você completou o desafio em ${global.DadosJogador.getTempoMoinho()[0]}min e
-                             ${global.DadosJogador.getTempoMoinho()[1]}s e teve uma boa noção dos princípios da unidade, continuidade e proximidade.`
+                             ${global.DadosJogador.getTempoMoinho()[1]}s e conheceu os princípios da unidade, continuidade e proximidade.`
                             // "Parabéns XXX !!! Você completou o jogo com êxito", "Você concluiu esse jogo em XXmin e YYs "]
         };
 
@@ -126,7 +126,7 @@ class Personagem extends React.Component {
 
          
          return(<>
-                <div id="magus" className="personagemAparecer"></div>
+                <div id="magus" className="personagemAparecer"></div>{/* (Magus é o nome do personagem) */}
                 
                 <div id="mensagemParabens" className="aparecerCaixaDeMensagem">
                         <h3 id="fala">  
@@ -141,8 +141,6 @@ class Personagem extends React.Component {
                 <div id="fundoPreto" className="escurecerFundo"></div>
         </>);
 
-
-        
     }
 
 
@@ -221,12 +219,12 @@ class Personagem extends React.Component {
             //document.getElementById("mensagemParabens").className.remove("aparecerCaixaDeMensagem"); 
         
             document.getElementById("fundoPreto").className = "escurecerFundo";   
-           // document.getElementById("fundoPreto").style.animationDirection = "normal"; //NÃO FUNCIONA
+            //document.getElementById("fundoPreto").style.animationDirection = "normal"; //NÃO FUNCIONA
 
             //window.setTimeout( ()=>{
              window.setTimeout( ()=>{
                  document.getElementById("magus").className="falando";
-             }, 1500);
+             }, 600);
 
            //  this.state={ personagemEsta: "parabenizando" }
            //}, 1000); 
