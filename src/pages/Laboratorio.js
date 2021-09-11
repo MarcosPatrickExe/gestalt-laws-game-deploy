@@ -2,8 +2,8 @@ import React from 'react';
 import FundoLaboratorio from '../images/imagens_jogo_laboratorio/laboratorio_sem_globo.png';
 import TransitionEffects from '../transitionEffects.js';
 import '../styles/LaboratorioStyle.css';
-import '../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_parado.png';
-import '../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_voando.png'
+//import '../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_parado.png';
+//import '../images/imagens_jogo_laboratorio/Animais_laboratorio/passaro_voando.png'
 import Personagem from './Personagem';
 
 class Laboratorio extends React.Component{
