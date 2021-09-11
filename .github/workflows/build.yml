@@ -1,9 +1,5 @@
 name: deploy
 
-#SITE CONFIGURATION:
-baseurl: "/gestalt-laws-game-deploy"
-#url: "marcospatrickexe.github.io/"
-
 on:
   push:
     branches:
